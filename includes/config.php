@@ -12,9 +12,9 @@ ini_set('errors_log', 'errors.log');
 @
 */
 $db_host  = 'localhost';
-$db_user  = 'zawghivc_zwaj';
-$db_pass  = 'zawghivc_zwaj';
-$db_name  = 'zawghiv1234';
+$db_user  = 'root';
+$db_pass  = '';
+$db_name  = 'zwaj';
 #
 #mysqli class
 #
