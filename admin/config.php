@@ -17,9 +17,9 @@ ini_set("log_errors", TRUE);
 
 //Database
 define('HOST', 'localhost'); //Editable 
-define('DB_NAME', 'zwaj'); //Editable
-define('DB_USER', 'root'); //Editable
-define('DB_PASS', ''); //Editable
+define('DB_NAME', 'zawghivc_zwaj'); //Editable
+define('DB_USER', 'zawghivc_zwaj'); //Editable
+define('DB_PASS', 'zawghiv1234$'); //Editable
 
 //url
 $secured = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on'? "https://" : "http://";

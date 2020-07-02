@@ -12,9 +12,9 @@ ini_set('errors_log', 'errors.log');
 @
 */
 $db_host  = 'localhost';
-$db_user  = 'root';
+$db_user  = 'zawghivc_zwaj';
 $db_pass  = '';
-$db_name  = 'zwaj';
+$db_name  = 'zawghiv1234';
 #
 #mysqli class
 #
@@ -28,4 +28,3 @@ $mysqli->set_charset('utf8');
 #THEME-CONFIG
 #
 ?>
-https://github.com/ELASHMAWYDEV/zwajProject.git
