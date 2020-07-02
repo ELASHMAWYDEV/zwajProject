@@ -25,3 +25,4 @@ define('DB_PASS', 'zawghiv1234$'); //Editable
 $secured = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on'? "https://" : "http://";
 define('ROOT_URL', $secured . $_SERVER['HTTP_HOST'] . '/admin/');
 define('PUBLIC_URL', $secured . $_SERVER['HTTP_HOST'] . '/admin/public/');
+?>

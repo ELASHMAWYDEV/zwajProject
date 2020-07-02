@@ -1,8 +1,7 @@
 *.zip
 *.sql
 .dist
-includes/config.php
-admin/config.php
+config.php
 
 #log files
 *.log
