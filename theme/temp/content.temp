@@ -1,0 +1,37 @@
+<div id="infopar">
+ <p>زواج</p>
+ <span>منصه وسيطه تجمع بين الجنسين من مرضى نقص المناعه</span>
+ <div class="searchbtns">
+  <div class="malsearch"><i class="fas fa-male"></i> ابحث عن زوج</div>
+  <div class="femsearch"><i class="fas fa-female"></i> ابحث عن زوجه</div>
+ </div>
+
+ <div class="searchform maleform">
+  <p><i class="fas fa-search"></i> البحث عن زوج <div class="back" onclick="backform()">عوده</div> </p>
+  <div class="searchs">
+  <form action="search" method="post">
+  <input type="hidden" name="gender" value="1" />
+  <div><select name="country"><option value="0">المملكة العربية السعودية</option></select></div>
+  <div><select name="state"><option value="N">المنطقة</option> <option value="0">الكل</option> <option value="1">الرياض</option> <option value="2">مكة المكرمة</option> <option value="3">المدينة المنورة</option> <option value="4">القصيم</option> <option value="5">المنطقة الشرقية</option> <option value="6">عسير</option> <option value="7">تبوك</option> <option value="8">حائل</option> <option value="9">الحدود الشمالية</option> <option value="10">جازان</option> <option value="11">نجران</option> <option value="12">الباحة</option> <option value="13">الجوف</option> <option value="1">- - - - - - - - -</option> <option value="14">اخر</option> </select></div>
+  <div><input type="submit" name="malesearch" value="البحث" /></div>
+  </form>
+  </div>
+ </div>
+ <div class="searchform femaleform">
+  <p><i class="fas fa-search"></i> البحث عن زوجة <div class="back" onclick="backform()">عوده</div> </p>
+  <div class="searchs">
+  <form action="search" method="post">
+  <input type="hidden" name="gender" value="2" />
+  <div><select name="country"><option value="0">المملكة العربية السعودية</option></select></div>
+  <div><select name="state"><option value="N">المنطقة</option> <option value="0">الكل</option> <option value="1">الرياض</option> <option value="2">مكة المكرمة</option> <option value="3">المدينة المنورة</option> <option value="4">القصيم</option> <option value="5">المنطقة الشرقية</option> <option value="6">عسير</option> <option value="7">تبوك</option> <option value="8">حائل</option> <option value="9">الحدود الشمالية</option> <option value="10">جازان</option> <option value="11">نجران</option> <option value="12">الباحة</option> <option value="13">الجوف</option> <option value="1">- - - - - - - - -</option> <option value="14">اخر</option> </select></div>
+  <div><input type="submit" name="femalesearch" value="البحث" /></div>
+  </form>
+  </div>
+ </div>
+
+</div>
+<div class="line"><i class="fas fa-search"></i> اخر المسجلين</div>
+<div id="loadusrs">
+<?=lastusers();?>
+
+</div>

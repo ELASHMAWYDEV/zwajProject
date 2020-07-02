@@ -1,0 +1,48 @@
+<div id="infopar">
+	<p>زواج</p>
+	<span><?=usrSearch();?></span>
+</div>
+<div id="dashboard">
+
+ <div id="advanced">
+ 	<p onclick="showsearch()">البحث المتقدم <i class="fas fa-caret-down"></i></p>
+	<div class="search">
+		<label><select name="agefrom"><option value="0">العمر من</option><option value="18">18</option> <option value="19">19</option> <option value="20">20</option> <option value="21">21</option> <option value="22">22</option> <option value="23">23</option> <option value="24">24</option> <option value="25">25</option> <option value="26">26</option> <option value="27">27</option> <option value="28">28</option> <option value="29">29</option> <option value="30">30</option> <option value="31">31</option> <option value="32">32</option> <option value="33">33</option> <option value="34">34</option> <option value="35">35</option> <option value="36">36</option> <option value="37">37</option> <option value="38">38</option> <option value="39">39</option> <option value="40">40</option> <option value="41">41</option> <option value="42">42</option> <option value="43">43</option> <option value="44">44</option> <option value="45">45</option> <option value="46">46</option> <option value="47">47</option> <option value="48">48</option> <option value="49">49</option> <option value="50">50</option> <option value="51">51</option> <option value="52">52</option> <option value="53">53</option> <option value="54">54</option> <option value="55">55</option> <option value="56">56</option> <option value="57">57</option> <option value="58">58</option> <option value="59">+59</option> </select></label>
+		<label><select name="ageto"><option value="0">العمر الى</option><option value="18">18</option> <option value="19">19</option> <option value="20">20</option> <option value="21">21</option> <option value="22">22</option> <option value="23">23</option> <option value="24">24</option> <option value="25">25</option> <option value="26">26</option> <option value="27">27</option> <option value="28">28</option> <option value="29">29</option> <option value="30">30</option> <option value="31">31</option> <option value="32">32</option> <option value="33">33</option> <option value="34">34</option> <option value="35">35</option> <option value="36">36</option> <option value="37">37</option> <option value="38">38</option> <option value="39">39</option> <option value="40">40</option> <option value="41">41</option> <option value="42">42</option> <option value="43">43</option> <option value="44">44</option> <option value="45">45</option> <option value="46">46</option> <option value="47">47</option> <option value="48">48</option> <option value="49">49</option> <option value="50">50</option> <option value="51">51</option> <option value="52">52</option> <option value="53">53</option> <option value="54">54</option> <option value="55">55</option> <option value="56">56</option> <option value="57">57</option> <option value="58">58</option> <option value="59">+59</option> </select></label>
+		<label><select name="state"><option value="0">المنطقة</option> <option value="0">- - - - - - - - -</option> <option value="1">الرياض</option> <option value="2">مكة المكرمة</option> <option value="3">المدينة المنورة</option> <option value="4">القصيم</option> <option value="5">المنطقة الشرقية</option> <option value="6">عسير</option> <option value="7">تبوك</option> <option value="8">حائل</option> <option value="9">الحدود الشمالية</option> <option value="10">جازان</option> <option value="11">نجران</option> <option value="12">الباحة</option> <option value="13">الجوف</option> <option value="null">- - - - - - - - -</option> <option value="14">اخر</option> </select></label>
+		<label><select name="type"><option value="0">الحاله</option><option>اعزب</option> <option>ارمل</option> <option>مطلق</option> <option>متزوج</option></select></label>
+		<label><select name="money"><option value="0">الحاله المادية</option><option>غني</option>  <option>جيد</option> <option>متوسط</option> <option>اقل من متوسط</option> <option>فقير</option></select></label>
+		<label><select name="zwaj_type"><option value="0">نوع الزواج</option><option>زواج اول</option> <option>زواج ثاني</option> <option>زواج ثالث</option> <option>زواج رابع</option></select></label>
+		<label><select name="skin_color"><option value="0">لون البشره</option><option value="1">ابيض</option><option value="2">حنطي مائل للابيض</option><option value="3">حنطي مائل للسمار </option><option value="4">اسمر فاتح</option><option value="5">اسمر غامق</option><option value="5">أسمر</option></select></label>
+		<label><select name="body_type"><option value="0">بنيه الجسم</option><option value="1">نحيف/رفيع</option><option value="2">متوسط البنية</option><option value="3">قوام رياضي</option><option value="4">سمين</option><option value="5">ضخم</option></select></label>
+		<label><select name="education">
+	 		<option value="0">المؤهل التعليمي</option>
+	 		<option value="1">تعليم متوسط</option>
+	 		<option value="2">تعليم ثانوي</option>
+	 		<option value="3">تعليم جامعي</option>
+	 		<option value="4">دكتوراه</option>
+	 		<option value="5">تعليم ذاتي</option>
+	 	</select></label>
+		<label><select name="work">
+		 			<option value="0">مجال العمل</option>
+		 			<option value="1">الهندسه</option>
+		 			<option value="1">الطب / التمريض</option>
+		 			<option value="1">الإدارة</option>
+		 			<option value="1">التجارة</option>
+		 			<option value="1">تسويق ومبيعات</option>
+		 			<option value="1">قانون</option>
+		 			<option value="1">الكمبيوتر والمعلومات</option>
+		 			<option value="1">عمل خاص / رائد اعمال</option>
+		 			<option value="1">مجال الفن والادب</option>
+		 			<option value="1">عمل حكومي</option>
+		 			<option value="1">لا اعمل</option>
+		 			<option value="1">اخر</option>
+		 		</select></label>
+		 <label for="search"><input type="submit" name="search" value="البحث" /></label>
+	</div>
+ </div>
+
+
+<?=usrList();?>
+
+</div>

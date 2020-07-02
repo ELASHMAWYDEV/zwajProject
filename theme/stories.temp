@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="theme/css/story.css" />
+    <link rel="stylesheet" type="text/css" href="theme/css/dashboard.css" />
+    <link rel="stylesheet" type="text/css" href="lib/fontawesome/css/all.css" />
+    <link rel="icon" 
+      type="image/png" 
+      href="theme/img/favicon.png" />
+    <script type="text/javascript" src="lib/jquery/jquery.js"></script>
+    <title>Zwaj - تجارب المستخدمين</title>
+    <?=navbar();?>
+    <?=res_navbar();?>
+</head>
+<body>
+<?=stories();?>
+<?=footer();?>
+<script type="text/javascript" src="theme/js/main.js"></script>
+</body>
+</html>

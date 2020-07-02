@@ -1,0 +1,266 @@
+
+<style>
+	.alert {
+		text-align: center;
+		color: #fff;
+		width: max-content;
+		background-color: #eb2f06;
+		border-radius: 10px;
+		padding: 10px 30px;
+		margin: auto;
+		margin-top: 20px;
+		/* margin-bottom: 100px; */
+		display: none;
+	}
+</style>
+<div id="infopar">
+ <p>زواج</p>
+ <span>تسجيل عضويه جديده</span>
+</div>
+<?=registerpost();?>
+<div id="warn">
+ <p>تنبيه</p>
+ <label>منصه وموقع زواج مخصص لتوفير حلول للطرفين من ذوي مرض نقص المناعه .</label>
+ <label>معظم الخدمات المُقدمة للمستخدمين هي خدمات مجانية , ويمكن ترقيه حساب المستخدم عبر عده باقات مناسبة.</label>
+ <label>لا يسمح بإستخدام موقع زواج بشكل مخالف , إذا تم اكتشاف بعض الإبلاغات سوف يتم حظر حساب العضو المتسبب في ازعاج الأخريين على الفور.</label>
+ <label>الهدف من منصه زواج توفير منصه هدفها توفير زواج شرعي بين الطرفيين , وإستخدام المنصه في غير ذلك يُعد إستخدام مُخالف.</label>
+ <div class="warnda">أنا موافق</div>
+</div>
+<div id="register">
+ <p>تحديد الحاله</p>
+ <form action="" method="post" name="register_form">
+ <div class="inps">
+  <select name="gender" class="mainselector" required><option value="0">حدد الحاله</option><option value="1">أنا أبحث عن زوجة</option><option value="2">أنا أبحث عن زوج</option></select>
+ </div>
+ <p>بيانات الدخول</p>
+ <div class="inps">
+  <div><input type="text" name="username" placeholder="إسم المستخدم" required/></div>
+  <div><input type="email" name="email" placeholder="البريد الإلكتروني" required/></div>
+  <div><input type="password" name="password" placeholder="كلمه المرور" required /></div>
+  <div><input type="password" name="repassword" placeholder="اعد كلمه المرور" required/></div>
+ </div>
+ <p>المنطقة / الدولة</p>
+ <div class="inps">
+  <div>
+	  <select name="country" required>
+		<option value="">الدولة</option>
+		<option value="ksa">المملكة العربية السعودية</option>
+		<option value="eg">مصر</option>
+		<option value="uae">الامارات</option>
+		<option value="oman">عمان</option>
+		<option value="lebanon">لبنان</option>
+		<option value="morocco">المغرب</option>
+		<option value="algeria">الجزائر</option>
+		<option value="tunisia">تونس</option>
+		<option value="bahrain">البحرين</option>
+		<option value="palestine">فلسطين المحتلة</option>
+		<option value="jordon">الأردن</option>
+		<option value="yamn">اليمن</option>
+		<option value="iraq">العراق</option>
+		<option value="syria">سوريا</option>
+		<option value="sudan">السودان</option>
+	</select>
+  </div>
+  <div><select name="state" required>
+	  <option value="0">المنطقة</option>
+	  <option value="1">الرياض</option>
+	  <option value="2">مكة المكرمة</option> 
+	  <option value="3">المدينة المنورة</option> 
+	  <option value="4">القصيم</option> 
+	  <option value="5">المنطقة الشرقية</option> 
+	  <option value="6">عسير</option> 
+	  <option value="7">تبوك</option> 
+	  <option value="8">حائل</option> 
+	  <option value="9">الحدود الشمالية</option> 
+	  <option value="10">جازان</option> 
+	  <option value="11">نجران</option> 
+	  <option value="12">الباحة</option> 
+	  <option value="13">الجوف</option> 
+	  <option value="14">اخري</option> 
+	</select>
+</div>
+  <div><input type="text" name="city" placeholder="المدينه" required/></div>
+  <div><input type="text" name="nationality" placeholder="الجنسية" required/></div>
+  </div>
+ <p>معلومات</p>
+ <div class="inps">
+  <div><select name="religon" required><option value="muslim">مسلم</option></select></div>
+  <div><select name="type" required><option value="1">أعزب</option><option value="2">متزوج</option><option value="3">مطلق</option><option value="4">أرمل</option></select></div>
+  <div><select name="zwaj_type" required><option value="0">نوع الزواج</option><option value="1">زواج اول</option><option value="2">زواج ثاني</option><option value="3">زواج ثالث</option><option value="4">زواج رابع</option></select></div>
+  <div><input type="number" name="age" placeholder="اكتب عمرك - اكثر من 18" required></div>
+ </div>
+ <p>الصحة</p>
+ <div class="inps">
+  <div><select name="childrens_num" required><option value="0">هل لديك اطفال ؟</option><option value="1">ليس لدي</option><option value="2">طفل واحد</option><option value="3">طفلين</option><option value="4">ثلاثة اطفال</option><option value="5">اربعة اطفال</option><option value="6">خمسة اطفال</option><option value="7">ستة اطفال</option><option value="8">سبعة اطفال</option><option value="9">ثمانية اطفال</option> <option value="10">اكثر من ثمانية اطفال</option></select></div>
+  <div><input type="number" name="weight" placeholder="وزنك (كغ)" required></div>
+  <div><input type="number" name="tall" placeholder="طولك (سم)" required></div>
+  <div><select name="skin_color" required><option value="0">اختر لون البشرة</option><option value="1">ابيض</option><option value="2">حنطي مائل للابيض</option><option value="3">حنطي مائل للسمار </option><option value="4">اسمر فاتح</option><option value="5">اسمر غامق</option><option value="5">أسمر</option></select></div>
+  <div><select name="body_type" required><option value="0">بنيه الجسم</option><option value="1">نحيف/رفيع</option><option value="2">متوسط البنية</option><option value="3">قوام رياضي</option><option value="4">سمين</option><option value="5">ضخم</option></select></div>
+  <div><input type="number" name="hiv_years" placeholder="مده الإصابه بنقص المناعه (بالسنوات)" required></div>
+
+ </div>
+ <p>التدين و صفات</p>
+ <div class="inps">
+  <div>
+  <select name="religon1" required>
+  	<option value="0">اختر حاله التدين</option>
+
+  	<option value="1">لست متدين</option>
+  	<option value="2">متدين قليلاً</option>
+  	<option value="3">متدين</option>
+  	<option value="4">متدين كثيراً</option>
+  	<option value="5">لا اريد القول</option>
+  </select>
+  </div>
+  <div>
+  <select name="religon2" required>
+  	<option value="1">اختر وضع التدين</option>
+
+  	<option value="2">أصلي دائماً</option>
+  	<option value="3">أصلي أغلب الاوقات</option>
+  	<option value="4">أصلي بعض الاوقات</option>
+  	<option value="5">لا أصلي</option>
+  	<option value="6">أفضل ان لا أقول</option>
+  </select>
+  </div>
+  <div>
+  	<select name="religon3" required>
+  		<option value="0">هل تدخن ؟</option>
+  		<option value="1">نعم</option>
+  		<option value="2">لا</option>
+  	</select>
+  </div>
+  <div>
+  	<select name="religon4" class="lselector" required>
+  		<option value="0">اللحية</option>
+  		<option value="1">لدي لحية</option>
+  		<option value="2">ليس لدي لحية</option>
+  	</select>
+  </div>
+ </div>
+
+ <p>التعليم / العمل</p>
+
+ <div class="inps">
+ 	<div><select name="education" required>
+ 		<option value="0">المؤهل التعليمي</option>
+ 		<option value="1">تعليم متوسط</option>
+ 		<option value="2">تعليم ثانوي</option>
+ 		<option value="3">تعليم جامعي</option>
+ 		<option value="4">دكتوراه</option>
+ 		<option value="5">تعليم ذاتي</option>
+ 	</select></div>
+ 	<div>
+ 		<select name="money" required>
+ 			<option value="0">الحاله الماديه</option>
+ 			<option value="1">فقير</option>
+ 			<option value="2">اقل من متوسط</option>
+ 			<option value="3">متوسط</option>
+ 			<option value="4">اكثر من متوسط</option>
+ 			<option value="5">جيد</option>
+ 			<option value="6">ميسور</option>
+ 			<option value="7">غني</option>
+ 		</select>
+ 	</div>
+ 	<div>
+ 		<select name="work" required>
+ 			<option value="0">مجال العمل</option>
+ 			<option value="1">الهندسه</option>
+ 			<option value="2">الطب / التمريض</option>
+ 			<option value="3">الإدارة</option>
+ 			<option value="4">التجارة</option>
+ 			<option value="5">تسويق ومبيعات</option>
+ 			<option value="6">قانون</option>
+ 			<option value="7">الكمبيوتر والمعلومات</option>
+ 			<option value="8">عمل خاص / رائد اعمال</option>
+ 			<option value="9">مجال الفن والادب</option>
+ 			<option value="10">عمل حكومي</option>
+ 			<option value="11">لا اعمل</option>
+ 			<option value="12">اخر</option>
+ 		</select>
+ 	</div>
+ 	<div>
+ 		<select name="salary" required>
+ 			<option value="0">الدخل الشهري</option>
+ 			<option value="1">لا يوجد دخل شهري</option>
+ 			<option value="2">اقل من 200 دولار</option>
+ 			<option value="3">100-200$</option>
+ 			<option value="4">200-500$</option>
+ 			<option value="5">500-1000$</option>
+ 			<option value="6">1000$-5000$</option>
+ 			<option value="7">5000$-10000$</option>
+ 			<option value="8">اكثر من 15000$</option>
+ 			<option value="9">افضل ان لا اقول</option>
+ 		</select>
+ 	</div>
+ </div>
+
+ <p>الحاله الصحيه</p>
+ <div class="inps">
+ 	<div>
+ 		<select name="health"><option value="0">نقص المناعه HIV</option></select>
+ 	</div>
+ </div>
+ <p>مواصفات شريكة الحياه</p>
+ <div class="note">يمنع كتابه تفاصيل مثل رقم الهاتف او البريد الاكتروني و وسائل تواصل خارجيه</div>
+ <div class="inps">
+ 	<div>
+ 		<textarea name="lovebio" placeholder="مثلاً : ان تكون متدينه , ان تكون من منطقه معينه الخ.."></textarea>
+ 	</div>
+ </div>
+ <p>تحدث عن نفسك</p>
+ <div class="note">يمنع كتابه تفاصيل مثل رقم الهاتف او البريد الاكتروني و وسائل تواصل خارجيه</div>
+ <div class="inps">
+ 	<div>
+ 		<textarea name="bio"></textarea>
+ 	</div>
+ </div>
+ <p><i class="fas fa-user-secret"></i> البيانات الخاصه</p>
+ <div class="note">بياناتك في امان - هذه البيانات لا يمكن سوى للإداره مراجعتها , لا يمكن لباقي المستخدمين رؤيتها</div>
+ <div class="inps">
+ 	<div>
+ 		<input type="text" name="full_name" placeholder="الإسم بالكامل" />
+ 	</div>
+ 	<div>
+ 		<input type="number" name="phone_number" placeholder="رقم الهاتف" />
+ 	</div>
+ </div>
+ <div class="inps">
+ 	<div>
+		 <input type="submit" name="register" value="تسجيل الحساب" />
+		 <div class="alert">تحذير</div>
+ 	</div>
+ </div>
+</form>
+</div>
+
+
+<script>
+	let form = document.forms['register_form'];
+	form.onsubmit = e => {
+		if(form['country'].selectedIndex == 0) {
+			e.preventDefault();
+			alert('يجب اختيار الدولة أولا');
+		}
+	}
+
+
+	form['country'].onchange = e => {
+		if (form['country'].selectedIndex != 1) {
+			form['state'].selectedIndex = 14;
+			form['state'].style.pointerEvents = 'none';
+		} else {
+			form['state'].style.pointerEvents = 'auto';
+		}
+	}
+
+	function alert($msg) {
+		let alert = document.querySelector('.alert');
+		alert.style.display = 'block';
+		alert.innerHTML += `-${msg}<br>`;
+		setTimeout( e => {
+			alert.style.display = 'none';
+			alert.innerHTML = '';
+		}, 3000);
+	}
+</script>

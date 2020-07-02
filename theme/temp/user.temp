@@ -1,0 +1,54 @@
+<div id="infopar">
+  <p><?=$_SESSION['username'];?></p>
+  <span>إداره العضويه</span>
+</div>
+<?=usrImgUpdate();?>
+<?=editBios();?>
+<div id="manage">
+  <div class="change">
+    <p class="upimg">صوره المستخدم <i class="fas fa-caret-down"></i></p>
+    <div class="clickable upimgOpen">
+    	<label><?=currentUsrImg();?></label>
+    	<label>ارفع الصوره</label>
+    	<label><div class="noti">* تغيير صوره المستخدم الحاليه بصورتك الحقيقه يساعدك على مراسلات اكثر</div></label>
+    	<form action="" method="post" enctype="multipart/form-data">
+    	<input type="hidden" name="size" value="1000000">
+    	<label><input type="file" name="image"></label>
+    	<label><input type="submit" value="تعديل الصوره" name="upImg" /></label>
+        </form>
+    </div>
+    <p class="usrInfo">تفاصيل الحساب <i class="fas fa-caret-down"></i></p>
+    <div class="clickable upInfoOpen">
+    	<label>اسم المستخدم : <?=username();?></label>
+    	<label>البريد الإلكتروني : <?=email();?></label>
+    	<label>حاله العضويه الحاليه : <?=userCheck();?></label>
+    	<label>مواصفات شريكة الحياه :</label>
+    	<label><?=lovebio();?></label>
+    	<label>تحدث عن نفسك :</label>
+    	<label><?=bio();?></label>
+    </div>
+    <p class="usrInfo"><a href="upgrade" target="_blank">ترقيه الحساب <i class="fas fa-caret-down"></i></a></p>
+    <p class="editInfoBtn">تعديل البيانات <i class="fas fa-caret-down"></i></p>
+    <div class="clickable editInfo">
+    	<form action="" method="post">
+    	<div>مواصفات شريكه الحياه</div>
+    	 <div><textarea name="lovebio"><?=lovebio();?></textarea></div>
+    	 <div>تحدث عن نفسك</div>
+    	 <div><textarea name="bio"><?=bio();?></textarea></div>
+    	 <div><input type="submit" name="editbios" value="تعديل البيانات" /></div>
+        </form>
+    </div>
+    <div class="clickable editInfo">
+    	<form action="" method="post">
+    	 <div>كلمه المرور الجديده</div>
+    	 <div><input type="password" name="password" /></div>
+    	 <div>اعد كلمه المرور</div>
+    	 <div><input type="password" name="repassword" /></div>
+    	 <div><input type="submit" name="editpassword" value="تعديل البيانات" /></div>
+        </form>
+    </div>
+      <p class="editInfoBtn"><a href="profile?id=<?=$_SESSION['id'];?>">عرض العضويه <i class="fas fa-caret-down"></i></a></p>
+
+
+  </div>
+</div>

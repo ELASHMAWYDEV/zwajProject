@@ -1,0 +1,163 @@
+<?php
+
+
+$id = $_GET['id'];
+$alert = false;
+$user = $mysqli->query("SELECT * FROM users WHERE id = '$id'");
+
+if ($user->num_rows == '0') header('location: dashboard');
+
+$user = $user->fetch_assoc();
+
+
+
+
+if(isset($_POST['report'])) {
+    $reason = $_POST['reason'];
+    $reporter = $_SESSION['id'];
+    $stmt = $mysqli->query("INSERT INTO reports (reporter_id, reported_id, reason) VALUES ('$reporter', '$id', '$reason')");
+
+    if ($stmt) {
+        $alert = true;
+        header('refresh: 1;url=dashboard');
+    }
+}
+?>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="theme/css/profile.css" />
+    <link rel="stylesheet" type="text/css" href="lib/fontawesome/css/all.css" />
+    <link rel="icon" 
+      type="image/png" 
+      href="theme/img/favicon.png" />
+    <script type="text/javascript" src="lib/jquery/jquery.js"></script>
+    <title>Zwaj</title>
+    <?=navbar();?>
+    <?=res_navbar();?>
+    <style>
+        .report-container {
+            width: 400px;
+            max-width: 100%;
+            padding: 20px;
+            direction: rtl;
+            background-color: #fff;
+            border: 2px solid #34495e;
+            border-radius: 8px;
+            margin: 50px auto;
+        }
+        .report-container > h3 {
+            text-align: center;
+            padding: 0 0 15px;
+        } 
+        .report-container select {
+            border: none;
+            outline: none;
+            border: 2px solid transparent;
+            padding: 5px;
+            transition: 0.2s ease;
+            border-radius: 7px;
+            background-color: #eee;
+            margin-right: 15px;
+            width: 70%;
+        }
+        .report-container select:focus {
+            border: 2px solid #3498db;
+
+        }
+        .report-container .input-items {
+            display: flex;
+            flex-direction: column;
+        }
+        .report-container .input-item {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .report-container .input-item button {
+            padding: 5px 25px;
+            outline: none;
+            border: none;
+            background-color: #e74c3c;
+            transition: 0.3s ease;
+            cursor: pointer;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 8px;
+        }
+        .report-container .input-item button:hover {
+            background-color: #c0392b;
+
+        }
+        .report-container .input-item button:active {
+            transform: scale(0.9);
+        }
+        .alert {
+            text-align: center;
+            color: #fff;
+            width: max-content;
+            background-color: #34495e;
+            border-radius: 10px;
+            padding: 10px 30px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <?php if($alert):?>
+        <div class="alert" style="background-color: #4cd137; color:#000">تم الابلاغ عن المستخدم بنجاح</div>
+    <?php endif;?>
+    <div class="report-container">
+        <h3>الابلاغ عن <?=$user['username']?></h3>
+        <form method="POST" name="report_form">
+            <div class="input-items">
+                <div class="input-item">
+                    <label>سبب البلاغ</label>
+                    <select name="reason" id="">
+                        <option value="">اختر سبب البلاغ</option>
+                        <option value="اسم المستخدم غير لائق">اسم المستخدم غير لائق</option>
+                        <option value="بيانات الملف الشخصي (تحدث عن نفسك، عن شرييكك)غير لائقة">بيانات الملف الشخصي (تحدث عن نفسك، عن شرييكك)غير لائقة</option>
+                        <option value="كتابة بيانات الاتصال (الجوال أو الايميل) وعرضها في محتوي البيانات">كتابة بيانات الاتصال (الجوال أو الايميل) وعرضها في محتوي البيانات</option>
+                        <option value="العضو غير مسلم">العضو غير مسلم</option>
+                        <option value="يستخدم التطبيق بهدف تجاري أو دعائي">يستخدم التطبيق بهدف تجاري أو دعائي</option>
+                        <option value="يقوم بإرسال (الايميل أو رقم الجوال) عبر الرسائل الداخلية">يقوم بإرسال (الايميل أو رقم الجوال) عبر الرسائل الداخلية</option>
+                        <option value="قام باستخدام الفاظ جريئة وخادشة للحياء في محتوي رسالته">قام باستخدام الفاظ جريئة وخادشة للحياء في محتوي رسالته</option>
+                        <option value="ارسل لي رسالة يستهزئ في طلبي وفي بياناتي">ارسل لي رسالة يستهزئ في طلبي وفي بياناتي</option>
+                        <option value="أرسل لي أنه لا يريد الزواج ، ويطلب علاقة محرمة">أرسل لي أنه لا يريد الزواج ، ويطلب علاقة محرمة</option>
+                        <option value="يطلب زواج غير شرعي (زواج متعة، زواج عرفي،....)">يطلب زواج غير شرعي (زواج متعة، زواج عرفي،....)</option>
+                        <option value="يقوم بإرسال رسالة فيها تشهير لأحد الأشخاص">يقوم بإرسال رسالة فيها تشهير لأحد الأشخاص</option>
+                        <option value="يستخدم النصب والاحتيال المالي">يستخدم النصب والاحتيال المالي</option>
+                    </select>
+                </div>
+                <div class="input-item"><button type="submit" name="report">إبلاغ</button></div>
+            </div>
+        </form>
+    </div>
+
+
+
+<?=footer();?>
+<script type="text/javascript" src="theme/js/main.js"></script>
+<script>
+    let container = document.querySelector('.report-container');
+    let form = document.forms['report_form'];
+    let alert = document.createElement('div');
+    alert.classList.add('alert');
+    alert.innerText = "يجب اختيار سبب البلاغ";
+    form.onsubmit = e => {
+        if (form['reason'].selectedIndex == 0) {
+            e.preventDefault();
+            container.before(alert);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+
+
+<div class="main-container">
+    <div class="page-position">
+        <h2>لوحة التحكم</h2>
+        <p>/</p>
+        <h6>المشرفين</h6>
+    </div>
+    <div class="container admins">
+        <div class="search-container">
+            <h3>البحث المتقدم</h3>
+            <div class="search-box">
+                <input type="text" placeholder="اسم المستخدم">
+                <input type="text" placeholder="البريد الالكتروني">
+                <input type="text" placeholder="الاسم">
+                <input type="text" placeholder="رقم الهاتف">
+            </div>
+        </div>
+        <div class="add-new">
+            <button class="btn-add-new-admin" id="add_new_admin_btn" onclick="popupBox('.add-admin-box')">أضف جديد</button>
+        </div>
+        <div class="table-container">
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>اسم المستخدم</th>
+                            <th>البريد الالكتروني</th>
+                            <th>الاسم</th>
+                            <th>رقم الهاتف</th>
+                            <th>الإجراء</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($this->data as $user):?>
+                        <tr>
+                            <td><?php echo $user->id;?></td>
+                            <td><?php echo $user->username;?></td>
+                            <td><?php echo $user->email;?></td>
+                            <td><?php echo $user->name;?></td>
+                            <td><?php echo $user->phone;?></td>
+                            <td class="action"><button onclick="get_admin_edit(this)" class="btn-edit edit_admin_btn" data-admin-id="<?php echo $user->id;?>">تعديل</button><img onclick="popupBox('.delete-admin-box'); get_admin_delete(this);" src="<?php echo PUBLIC_URL;?>assets/img/trash.svg" alt="حذف المستخدم" title="حذف المستخدم" data-admin-id="<?php echo $user->id;?>" class="delete_admin_btn"></td>
+                        </tr>
+                        <?php endforeach;?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--Add New Admin Box BEGIN-->
+<div class="float-box-container">
+
+    <div class="add-admin-box">
+        <!--Closing Tag Start-->
+        <div class="closing" onclick="closeBox(this)">
+            <span></span>
+            <span></span>
+        </div>
+        <!--Closing Tag END-->
+        <form method="POST" id="add_new_admin_form" onsubmit="add_new_admin(this)">
+            <h3>إضافة مشرف جديد</h3>
+            <div class="input-items">
+                <div class="input-item"><label>اسم المستخدم</label><input type="text" name="username" placeholder="اسم المستخدم"></div>
+                <div class="input-item"><label>البريد الالكتروني</label><input type="text" name="email" placeholder="البريد الالكتروني"></div>
+                <div class="input-item"><label>الاسم</label><input type="text" name="name" placeholder="الاسم"></div>
+                <div class="input-item"><label>رقم الهاتف</label><input type="text" name="phone" placeholder="رقم الهاتف"></div>
+                <div class="input-item"><label>كلمة المرور</label><input type="password" name="pass1" placeholder="كلمة المرور"></div>
+                <div class="input-item"><label>تأكيد كلمة المرور</label><input type="password" name="pass2" placeholder="تأكيد كلمة المرور"></div>
+                <div class="input-item"><button class="save-btn" type="submit">اضافة</button></div>
+            </div>
+        </form>
+        
+    </div>
+</div>
+<!--Add New Admin Box END-->
+
+
+<!--Edit Admin Box BEGIN-->
+<div class="float-box-container">
+
+    <div class="edit-admin-box">
+        <!--Closing Tag Start-->
+        <div class="closing" onclick="closeBox(this)">
+            <span></span>
+            <span></span>
+        </div>
+        <!--Closing Tag END-->
+        <form method="POST" onsubmit="edit_admin(this)">
+            <input type="hidden" name="id">
+            <h3>تعديل بيانات المشرف رقم <span class="admin_id"></span></h3>
+            <div class="input-items">
+                <div class="input-item"><label>اسم المستخدم</label><input type="text" name="username" placeholder="اسم المستخدم"></div>
+                <div class="input-item"><label>البريد الالكتروني</label><input type="text" name="email" placeholder="البريد الالكتروني"></div>
+                <div class="input-item"><label>الاسم</label><input type="text" name="name" placeholder="الاسم"></div>
+                <div class="input-item"><label>رقم الهاتف</label><input type="text" name="phone" placeholder="رقم الهاتف"></div>
+                <div class="input-item"><button class="save-btn" type="submit">تعديل</button></div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--Edit Admin Box END-->
+
+
+<!--Delete Admin Box BEGIN-->
+<div class="float-box-container">
+
+    <div class="delete-admin-box">
+        <!--Closing Tag Start-->
+        <div class="closing" onclick="closeBox(this)">
+            <span></span>
+            <span></span>
+        </div>
+        <!--Closing Tag END-->
+        <form method="POST" onsubmit="delete_admin(this)">
+            <input type="hidden" name="id">
+            <h3>حذف المشرف رقم <span class="admin_id"></span></h3>
+            <div class="input-items">
+                <div class="input-item"><button class="delete-btn" type="submit">حذف</button></div>
+                <div class="input-item"><button class="abort-btn" type="" onclick="abort(this)">الغاء</button></div>
+            </div>
+        </form>
+        
+    </div>
+</div>
+<!--Delete Admin Box END-->
+

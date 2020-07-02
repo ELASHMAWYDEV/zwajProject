@@ -1,0 +1,89 @@
+#manage{
+  padding: 5px;
+  width:7in;
+  background: #ffffff;
+  margin:0 auto;
+  margin-top:5px;
+  border-radius: 2px;
+}
+.change{
+  direction: rtl;
+  padding: 5px;
+}
+.change p{
+  color:#444444;
+  cursor: pointer;
+}
+.change a{
+  text-decoration: none;
+  color:#000000;
+}
+.clickable{
+  padding:5px;
+  background:#eee;
+  border-radius:2px;
+}
+.clickable label{
+  display:block;
+}
+.clickable{
+  color:#222222;
+}
+.clickable input[type="file"]{
+  border:1px #e3e3e3 solid;
+  padding:5px;
+  border-radius:2px;
+  cursor:pointer;
+}
+.clickable input[type="submit"]{
+  all:unset;
+  padding:5px;
+  background:#0984e3;
+  color:#ffffff;
+  border-radius:5px;
+  cursor:pointer;
+  margin-top:5px;
+  width:1in;
+  text-align:center;
+  transition:0.2s;
+}
+.clickable input[type="submit"]:hover{
+  background:#d63031;
+}
+.clickable label img{
+  width:1in;
+  height:1in;
+  border-radius:5px;
+  border:1px #e3e3e3 solid;
+}
+.clickable label .noti{
+  font-size:14px;
+  color:#255;
+}
+.proc{
+  direction:rtl;
+  text-align:center;
+  margin-top:15px;
+  color:#ffffff;
+}
+.clickable label span{
+  color:#f0932b;
+  font-style: bold;
+  text-shadow: 2px 2px 2px #fff;
+}
+.clickable div{
+  text-align:center;
+}
+.clickable div textarea{
+  width:80%;
+  max-width:80%;
+  height:1in;
+  border:1px #eee solid;
+  border-radius:5px;
+}
+
+@media only screen and (max-width: 710px) {
+  #manage{
+    width:80vw;
+  }
+}

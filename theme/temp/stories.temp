@@ -1,0 +1,7 @@
+<div id="infopar">
+    <p>تجارب المستخدمين</p>
+</div>
+
+<div id="story">
+<?=storiesShow();?>
+</div>

@@ -1,0 +1,80 @@
+.users {
+    .search-container {
+        @include search-container;
+    }
+    .add-new {
+        @include flex;
+        margin: 30px auto;
+        .btn-add-new-user {
+            @include btn-adv($light-purple, $dark-purple);
+            font-size: 18px;
+        }
+    }
+    .table-container {
+        @include table-container;
+        .btn-edit {
+            @include btn-adv($light-green,$dark-green);
+            padding: 2px 10px;
+            font-size: 12px;
+        }
+    }
+}
+
+.edit-user-box{
+    display: none;
+    @include box;
+    @include box-animate;
+
+    h3 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .deactivate-btn {
+        @include btn-adv($light-purple,$dark-purple);
+        font-size: 16px;
+    }
+    .delete-btn {
+        @include btn-adv($light-red,$dark-red);
+        font-size: 16px;
+        margin-right: 40px;
+    }
+    .reactivate-btn {
+        @include btn-adv($light-green,$dark-green);
+        font-size: 16px;
+    }
+    .input-items {
+        flex-direction: row !important;
+    }
+
+}
+
+.show-user-box {
+    display: none;
+    @include box;
+    @include box-animate;
+
+    h3 {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    table {
+        border-collapse: collapse;
+        max-width: 100%;
+        th {
+            text-align: right;
+            border-left: 2px solid $black;
+            border-bottom: 2px solid $black;
+            padding: 5px 10px 5px 20px;
+            font-size: 16px;
+            font-weight: 500;
+
+        }
+        td {
+            text-align: right;
+            border-bottom: 2px solid $black;
+            padding: 10px 15px 10px 20px;
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
+}

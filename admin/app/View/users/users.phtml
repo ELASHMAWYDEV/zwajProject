@@ -1,0 +1,134 @@
+
+<div class="main-container">
+    <div class="page-position">
+        <h2>لوحة التحكم</h2>
+        <p>/</p>
+        <h6>الأعضاء</h6>
+    </div>
+    <div class="container users">
+        <div class="search-container">
+            <h3>البحث المتقدم</h3>
+            <div class="search-box">
+                <input type="text" placeholder="اسم المستخدم">
+                <input type="text" placeholder="البريد الالكتروني">
+                <input type="text" placeholder="الاسم">
+                <input type="text" placeholder="رقم الهاتف">
+                <input type="text" placeholder="#">
+                <div class="select-item">
+                    <select name="" id="" onclick="rotateSelect(this)">
+                        <option value="">الجنس</option>
+                        <option value="">ذكر</option>
+                        <option value="">أنثي</option>
+                    </select>
+                    <span></span>
+                </div>
+                <div class="select-item">
+                    <select name="" id="" onclick="rotateSelect(this)">
+                        <option value="">الدولة</option>
+                        <option value="">مصر</option>
+                        <option value="">السعودية</option>
+                    </select>
+                    <span></span>
+                </div>
+                <div class="select-item">
+                    <select name="" id="" onclick="rotateSelect(this)">
+                        <option value="">المنطقة</option>
+                        <option value="">مصر</option>
+                        <option value="">السعودية</option>
+                    </select>
+                    <span></span>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="table-container">
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>اسم المستخدم</th>
+                            <th>البريد الالكتروني</th>
+                            <th>الاسم</th>
+                            <th>الجنس</th>
+                            <th>الدولة</th>
+                            <th>المنطقة</th>
+                            <th>رقم الهاتف</th>
+                            <th>الإجراء</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($this->users as $user): ?>
+                        <tr>
+                            <td><?=$user->id?></td>
+                            <td><?=$user->username?></td>
+                            <td><?=$user->email?></td>
+                            <td><?=$user->full_name?></td>
+                            <td><?=$user->gender?></td>
+                            <td><?=$user->country?></td>
+                            <td><?=$user->state?></td>
+                            <td><?=$user->phone_number?></td>
+                            <td class="action"><button data-user-id="<?=$user->id?>" class="btn-edit" onclick="get_user_info(this);">جميع البيانات</button><img data-user-id="<?=$user->id?>" src="<?php echo PUBLIC_URL;?>assets/img/pencil.svg" alt="تعديل" title="تعديل البيانات" onclick="popupBox('.edit-user-box');"></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--edit user Box BEGIN-->
+<div class="float-box-container">
+
+    <div class="edit-user-box">
+        <!--Closing Tag Start-->
+        <div class="closing" onclick="closeBox(this)">
+            <span></span>
+            <span></span>
+        </div>
+        <!--Closing Tag END-->
+
+        <h3>المستخدم رقم #<span class="user_id"></span></h3>
+        <div class="input-items">
+            <form method="POST">
+                <input type="hidden" name="id">
+                <div class="input-item"><button class="deactivate-btn" name="deactivate_user" type="submit">تعطيل الحساب</button></div>
+            </form>
+            <form method="POST">
+                <input type="hidden" name="id">
+                <div class="input-item"><button class="delete-btn" name="delete_user" type="submit">حذف الحساب نهائيا</button></div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--edit user Box END-->
+
+
+
+<!--show user Box BEGIN-->
+<div class="float-box-container">
+
+    <div class="show-user-box">
+        <!--Closing Tag Start-->
+        <div class="closing" onclick="closeBox(this)">
+            <span></span>
+            <span></span>
+        </div>
+        <!--Closing Tag END-->
+        <input type="hidden" name="id">
+        <h3>بيانات المستخدم رقم #<span class="user_id"></span></h3>
+        <table class="show-user-table">
+           
+        </table>
+    </div>
+</div>
+<!--show user Box END-->

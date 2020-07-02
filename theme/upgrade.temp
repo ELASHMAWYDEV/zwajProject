@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="theme/css/user.css" />
+    <link rel="stylesheet" type="text/css" href="lib/fontawesome/css/all.css" />
+    <link rel="icon"
+      type="image/png"
+      href="theme/img/favicon.png" />
+    <script type="text/javascript" src="lib/jquery/jquery.js"></script>
+    <title>Zwaj</title>
+    <?=navbar();?>
+    <?=res_navbar();?>
+
+    
+    <style>
+        /*Added By ELASHMAWY DEV*/
+        .payments-container {
+            margin: 50px auto;
+            width: 70%;
+            background-color: #eee;
+            border: 2px solid #b2bec3;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .payments-container > h3 {
+            padding: 20px;
+            font-weight: 600;
+        }
+        .payments-container > h3 span {
+            color: #e74c3c;
+            font-size: 24px;
+        }
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            text-decoration: none;
+        }
+        .payment-card {
+            width: 300px;
+            background-color: #e74c3c;
+            margin: 20px auto;
+            color: #fff;
+            border-radius: 7px;
+            overflow: hidden;
+        }
+        .payment-card .head {
+            padding: 10px;
+            border-bottom: 3px solid #2c3e50;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .payment-card a {
+            display: inline-block;
+            border-radius: 5px;
+            padding: 5px 35px;
+            background-color: #0984e3;
+            border: 2px solid #2980b9;
+            color: #fff
+        }
+        .payment-card a:hover {
+            background-color: #2980b9;
+        }
+        .payment-card a:active {
+            transform: scale(0.95);
+        }
+        .payment-card li {
+            padding: 10px 5px;
+            border-bottom: 1px solid #2c3e50;
+        }
+        .payment-card li:nth-last-child(1) {
+            border: none;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="payments-container">
+        <h3><span>باقة واحدة</span> تضمن لك راحة البال وليالي مراسلة طوال</h3>
+
+        <div class="payment-card">
+            <div class="head"> &#9733; عضوية مميزة &#9733;</div>
+            <div class="content">
+                <ul>
+                    <li>عدد لا نهائي من الرسائل</li>
+                    <li>عدد لانهائي من الاعجابات</li>
+                    <li>يمكنك مراسلة جميع الأعضاء</li>
+                    <li>يمكنك حظر الأعضاء</li>
+                    <li>السعر:  الشهر/<span style="color:#000; font-weight:600;">$10</span></li>
+                    <li><a href="#">دفع</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+<?=footer();?>
+<script type="text/javascript" src="theme/js/main.js"></script>
+</body>
+</html>

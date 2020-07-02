@@ -1,0 +1,77 @@
+
+
+<div class="main-container">
+    <div class="page-position">
+        <h2>لوحة التحكم</h2>
+        <p>/</p>
+        <h6>المعاملات</h6>
+    </div>
+    <div class="container payments">
+        <div class="search-container">
+            <h3>البحث المتقدم</h3>
+            <div class="search-box">
+                <input type="text" placeholder="اسم المستخدم">
+                <div class="select-item">
+                    <select name="" id="" onclick="rotateSelect(this)">
+                        <option value="">الباقة</option>
+                        <option value="">مصر</option>
+                        <option value="">السعودية</option>
+                    </select>
+                    <span></span>
+                </div>
+                <div class="select-item">
+                    <select name="" id="" onclick="rotateSelect(this)">
+                        <option value="">وسيلة الدفع</option>
+                        <option value="">مصر</option>
+                        <option value="">السعودية</option>
+                    </select>
+                    <span></span>
+                </div>
+                <div class="select-item">
+                    <select name="" id="" onclick="rotateSelect(this)">
+                        <option value="">الاجراء المتخذ</option>
+                        <option value="">مصر</option>
+                        <option value="">السعودية</option>
+                    </select>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="table-container">
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>اسم المستخدم</th>
+                            <th>الباقة</th>
+                            <th>تاريخ المعاملة</th>
+                            <th>صالحة حتي</th>
+                            <th>وسيلة الدفع</th>
+                            <th>الإجراء</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php for($i=0;$i <= 14;$i++) {?>
+                        <tr>
+                            <td>1</td>
+                            <td>اسم المستخدم</td>
+                            <td>الباقة</td>
+                            <td>تاريخ المعاملة</td>
+                            <td>صالحة حتي</td>
+                            <td>وسيلة الدفع</td>
+                            <td class="action">
+                                <button class="btn-confirm">تأكيد</button>
+                                <button class="btn-unvalid">غير صالحة</button>
+                            </td>
+                        </tr>
+                        <?php }?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+
+            </div>
+        </div>
+    </div>
+</div>

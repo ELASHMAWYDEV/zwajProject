@@ -1,0 +1,63 @@
+#contact{
+    direction: rtl;
+    background: #ffffff;
+    width:7in;
+    margin:0 auto;
+    margin-top:5px;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+#contact label{
+    display: block;
+    padding: 5px;
+    color: #444444;
+    font-size:20px;
+}
+#contact label select{
+    all:unset;
+    padding: 5px;
+    border:1px #444 solid;
+    border-radius: 5px;
+    cursor: pointer;
+    width:80%;
+    font-size: 14px;
+}
+#contact label input{
+    padding:5px;
+    width:80%;
+    border:1px #444 solid;
+    border-radius:5px;
+}
+#contact label textarea{
+    width:82%;
+    border:1px #444 solid;
+    border-radius:5px;
+    height:2in;
+
+}
+#contact label input[type="submit"]{
+    background:#130f40;
+    color:#ffffff;
+    padding:10px;
+    width:83%;
+    cursor:pointer;
+    transition:0.2s;
+}
+#contact label input[type="submit"]:hover{
+    background:#eb4d4b;
+}
+.sent{
+    text-align:center;
+    padding:5px;
+    color:#ffffff;
+    border:1px #fff solid;
+    border-left:0px; border-right:0px;
+    border-bottom:0px;
+    margin-top:5px;
+}
+@media only screen and (max-width:710px){
+    #contact{
+        width:80%;
+    }
+}

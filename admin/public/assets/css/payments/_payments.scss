@@ -1,0 +1,19 @@
+.payments {
+    .search-container {
+        @include search-container;
+    }
+
+    .table-container {
+        @include table-container;
+        .btn-confirm {
+            @include btn-adv($light-green,$dark-green);
+            padding: 2px 10px;
+            font-size: 12px;
+        }
+        .btn-unvalid {
+            @include btn-adv($light-red,$dark-red);
+            padding: 2px 10px;
+            font-size: 12px;
+        }
+    }
+}

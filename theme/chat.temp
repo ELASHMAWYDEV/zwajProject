@@ -1,0 +1,678 @@
+<?php 
+  function getUserChat() {
+    global $mysqli;
+
+    if(isset($_GET['id'])) {
+      $id = $_GET['id'];
+      $sql = "SELECT * FROM users WHERE id = '$id' LIMIT 1";
+      $user = $mysqli->query($sql);
+
+      if ($user->num_rows == 0) { 
+        echo "
+        <script>
+            window.location.href = '/dashboard';
+        </script>
+    ";
+      } else {
+        $user = $user->fetch_assoc();
+
+        if($user['usr_img'] == ''){
+            if($user['gender'] == 1){
+              $img = '<img src="theme/img/men.png" />';
+            }
+            if($user['gender'] == 2){
+              $img = '<img src="theme/img/women.png" />';
+            }
+          }else{
+              $img = '<img src="uploads/'.$user['usr_img'].'" />';
+          }
+
+        echo '
+          <div class="chat-container">
+        
+          <div class="head">
+            <div class="user-img">
+              '.$img.'
+            </div>
+            <div class="user-details">
+                <div class="username">اسم المستخدم : <span>'.$user['username'].'</span></div>
+                <div class="last-seen">أخر تواجد: <span>منذ 5 أيام</span></div>
+                <div class="show-data"><a href="/profile?id='.$user['id'].'" target="_blank">تفقد البيانات</a></div>
+            </div>
+          </div>
+          <div class="chat-area">
+
+          </div>
+          <div class="chat-send">
+              <form method="POST" id="text_form" name="text_form" data-id="'.$user['id'].'">
+                <input type="text" placeholder="اكتب رسالتك هنا..." required>
+                <button type="submit" ><i class="fas fa-paper-plane"></i></button>
+              </form>
+              <form method="POST" name="img_form" id="image_form">
+                <input type="file" onchange="checkImage(this);" accept="image/x-png,image/gif,image/jpeg" name="image" id="image_upload" style="display: none;width: 0;"">
+                <label for="image_upload"><img src="/theme/img/attach.svg" alt="رفع صورة" id="img-attach" title="رفع صورة"></label>
+              </form>
+          </div>
+
+        </div>
+        <div id="no-img-alert">يمكنك رفع الصور فقط</div>
+          
+          ';
+      }
+    }
+  }
+
+
+  function getAllChats() {
+      global $mysqli;
+
+      if(!isset($_GET['id'])) {
+          $id = $_SESSION['id'];
+
+          $stmt = $mysqli->query("SELECT * FROM chat WHERE from_id = '$id'");
+          if ($stmt->num_rows == 0) {
+              header("location: dashboard");
+          } else {
+              $stmt = $stmt->fetch_all(MYSQLI_ASSOC);
+              $usersIds = [];
+
+              foreach ($stmt as $user) {
+                  $usersIds[] = $user['to_id'];
+              }
+              
+              $usersIds = array_unique($usersIds);
+
+              echo '<div id="loadusrs">';
+              foreach($usersIds as $userId) {
+                $stmt = $mysqli->query("SELECT * FROM users WHERE id = '$userId' LIMIT 1");
+
+                $user = $stmt->fetch_assoc();
+                
+                echo '
+                <div class="user">
+                ';
+                if($user['usr_img'] == ''){
+                if($user['gender'] == 1){
+                    echo '<img src="theme/img/men.png" />';
+                }
+                if($user['gender'] == 2){
+                    echo '<img src="theme/img/women.png" />';
+                }
+                }else{
+                    echo '<img src="uploads/'.$user['usr_img'].'" />';
+
+                }
+                echo '
+                <div class="info">
+                <p>'.$user['username'].'</p>
+                <label><i class="fas fa-globe-europe"></i> ';
+                $x = $user['state'];
+                if($x == 1){
+                    echo 'الرياض';
+                }
+                if($x == 2){
+                    echo 'مكة';
+                }
+                if($x == 3){
+                    echo 'المدينة';
+                }
+                if($x == 4){
+                    echo 'القصيم';
+                }
+                if($x == 5){
+                    echo 'المنطقة الشرقية';
+                }
+                if($x == 6){
+                    echo  'عسير';
+                }
+                if($x == 7){
+                    echo 'تبوك';
+                }
+                if($x == 8){
+                    echo 'حائل';
+                }
+                if($x == 9){
+                    echo 'الحدود الشمالية';
+                }
+                if($x == 10){
+                    echo 'جازان';
+                }
+                if($x == 11){
+                    echo 'نجران';
+                }
+                if($x == 12){
+                    echo 'الباحة';
+                }
+                if($x == 13){
+                    echo 'الجوف';
+                }
+                echo '</label>
+                <label><i class="fas fa-venus-mars"></i> ';
+                if($user['gender'] == 1){
+                    echo 'ذكر';
+                }else{
+                    echo 'انثى';
+                }
+                echo '</label>
+                <label><i class="fas fa-question"></i> ';
+                if($user['type'] == 1){
+                    echo 'اعزب';
+                }
+                if($user['type'] == 2){
+                    echo 'متزوج';
+                }
+                if($user['type'] == 3){
+                    echo 'مطلق';
+                }
+                if($user['type'] == 4){
+                    echo 'أرمل';
+                }
+
+                echo '</label>
+                <label><a href="?id='.$user['id'].'"><i class="fas fa-paper-plane"></i> مراسله</a></label>
+                </div>
+                </div>
+                ';
+
+               
+
+                // echo '<div class="pages">';
+                // for($page=1;$page<=$num_of_pages;$page++){
+                //     echo '<a href="?page='.$page.'#'.base64_encode(time()).'" ';
+                //     if($_GET['page'] == $page){
+                //     echo 'class="_selected"';
+                //     }
+                //     echo '>'.$page.'</a>';
+                // }
+                
+            }
+            echo '</div>';
+            echo '</div>';
+            
+              
+        }
+    }
+}
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="theme/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="theme/css/dashboard.css" />
+  <link rel="stylesheet" type="text/css" href="lib/fontawesome/css/all.css" />
+  <link rel="icon" 
+  type="image/png" 
+  href="theme/img/favicon.png" />
+  <script type="text/javascript" src="lib/jquery/jquery.js"></script>
+  <title>Zwaj</title>
+  <?=navbar();?>
+  <?=res_navbar();?>
+  <style>
+      .chat-container {
+          width: 400px;
+          height: 500px;
+          max-width: 95%;
+          margin: auto;
+          margin-top: 30px;
+          margin-bottom: 150px;
+          background-color: #fff;
+          border-radius: 7px;
+          /* overflow: hidden; */
+          position: relative;
+
+      }
+      .chat-container .head {
+          display: flex;
+            border-bottom: 2px solid #ddd;
+      }
+      .chat-container .head .user-img {
+          width: 120px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: auto;
+      }
+      .chat-container .head .user-img img{
+        width: 100%;
+
+      }
+      .chat-container .head .user-details {
+          margin-left: auto;
+          padding: 20px;
+          direction: rtl;
+      }
+      .chat-container .head .user-details .username span, .chat-container .head .user-details .last-seen span {
+
+        font-weight: 500;
+        font-size: 18px;
+      }
+      .chat-container .head .user-details .show-data {
+          margin-top: 15px;
+      }
+      .chat-container .head .user-details .show-data a{
+          color: #fff;
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 16px;
+          background-color: #e74c3c;
+          padding: 5px 15px;
+          border-radius: 8px;
+          
+      }
+      .chat-container .head .user-details .show-data a:hover {
+        background-color: #c0392b;
+      }
+      .chat-area {
+          background-image: url('theme/img/chat-bg.jpeg');
+         height: 80%;
+          display: flex;
+          flex-direction: column;
+          overflow-y: auto;
+      }
+      .chat-area::-webkit-scrollbar {
+          width: 0;
+          height: 0;
+      }
+      .chat-area > div {
+        margin: 10px;
+        background-color: #2ecc71;
+        border-radius: 5px;
+        padding: 5px 8px;
+        direction: rtl;
+        color: #fff;
+        width: 75%;
+        position: relative;
+        z-index: 5;
+      }
+
+      .chat-area > div::before {
+          content: attr(data-time);
+          display: block;
+          position: absolute;
+          bottom: -17px;
+          right: 0;
+          font-size: 12px;
+          color: #000;
+          direction: ltr;
+
+      }
+      .chat-area > div::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translate(0, -50%) rotate(45deg);
+          width: 25px;
+          height: 25px;
+          background-color: inherit;
+          z-index: -1;
+      }
+      .chat-area .sent::before {
+          right: unset;
+          left: 0;
+      }
+      .chat-area .sent {
+        background-color: #3498db;
+        align-self: flex-end;
+      }
+      .chat-area .sent::after {
+          right: 0;
+          left: unset;
+      }
+      .chat-send {
+        height: 40px;
+        width: 100%;
+        position: absolute;
+        /* bottom: 0;   */
+      }
+      .chat-send form {
+          height: 100%;
+      }
+      .chat-send input {
+          display: block;
+          width: 95%;
+          height: 100%;
+          border: none;
+          outline: none;
+          direction: rtl;
+          padding-right: 20px;
+      }
+      .chat-send button {
+          position: absolute;
+          left: 10px;
+          top: 50%;
+          transform: translateY(-50%) rotateY(180deg);
+          border: none;
+          background-color: #3498db;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 35px;
+          height: 35px;
+          cursor: pointer;
+          color: #fff;
+          font-size: 18px;
+          padding-right: 3px;
+          z-index: 5;
+
+      }
+      .chat-send button:hover {
+        background-color: #2ecc71;
+      }
+      .chat-send button:active {
+          transform: translateY(-50%) rotateY(180deg) scale(0.9);
+      }
+      .chat-send form[name="img_form"] {
+          position: absolute;
+          top: 0;
+          left: 65px;
+          display: flex;
+          align-items: center;
+      }
+      .chat-send form[name="img_form"] label {
+        width: 30px;
+        opacity: 0.7;
+        margin-top: 5px;
+        /* margin-left: 60px; */
+        transform: rotate(-65deg);
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      .chat-send form[name="img_form"] label:hover {
+          transform: rotate(-30deg) scale(1.05);
+      }
+      .chat-send form[name="img_form"] #img-attach {
+          width: 100%;
+
+      }
+      
+      .upgrade-first {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          height: calc(100% + 80px);
+          z-index: 50;
+
+      }
+      .upgrade-first .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 55;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        direction: rtl;
+      }
+      .blur {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 51;
+          filter: blur(8px);
+          background-color: #eeeeeedd;
+      }
+      .upgrade-first .membership {
+          
+          margin-top: 150px;
+          font-weight: 600;
+          font-size: 22px;
+      }
+      .upgrade-first .membership span {
+          color: #e74c3c;
+      }
+      .upgrade-first .notice {
+          margin-top: 30px;
+          padding: 0 25px;
+          color: #c0392b;
+          font-weight: 500;
+          text-align: center;
+      }
+      .upgrade-first .upgrade {
+          padding: 8px 25px;
+          background-color: #2ecc71;
+          text-decoration: none;
+          color: #fff;
+          border-radius: 8px;
+          transition: 0.3s ease;
+          margin-bottom: auto;
+          margin-top: 30px;
+      }
+      .upgrade-first .upgrade:hover {
+        background-color: #44bd32;
+
+      }
+      #no-img-alert {
+            text-align: center;
+            color: #fff;
+            width: max-content;
+            background-color: #34495e;
+            border-radius: 10px;
+            padding: 10px 30px;
+            margin: auto;
+            margin-top: -150px;
+            margin-bottom: 100px;
+            position: relative;
+            z-index: 20;
+            display: none;
+        }
+
+  </style>
+  </head>
+  <body>
+
+    <?=getUserChat();?>
+    <?=getAllChats();?>
+    
+
+
+    <?=footer();?>
+  <script type="text/javascript" src="theme/js/main.js"></script>
+
+  <script>
+      
+      $('.chat-send #text_form').on('submit', (e) => {
+          e.preventDefault();
+
+          let id = $('.chat-send #text_form').attr('data-id');
+          let message = $('.chat-send #text_form input').val();
+          $('.chat-send #text_form input').val('')
+          checkMimbership();
+          $.ajax({
+              type: 'POST',
+              url: 'message_func',
+              data: {send_message: 'send_message', message: message, id: id},
+              success: (data) => {
+                  displayMessages(data, id);
+                  
+              }
+          });
+          $('.chat-area').scrollTop($('.chat-area')[0].scrollHeight);
+         
+          checkMimbership();
+      });
+
+
+      function displayMessages(chat, id) {
+        chat = $.parseJSON(chat);
+        $('.chat-area').html('');
+        chat.forEach( (msg) => {
+
+            let container = document.createElement('div');
+            container.setAttribute('data-time', msg.time);
+            
+                if (msg.to_id == id) {
+                    if(!isImage(msg.msg, container, 'sent')) {
+                        container.classList.add('sent');
+                        container.innerText = msg.msg;
+                        $('.chat-area').append(container);
+                    }
+                } else {
+                    if(!isImage(msg.msg, container, 'recieved')) {
+                        container.classList.add('recieved');
+                        container.innerText = msg.msg;
+                        $('.chat-area').append(container);
+                    }
+                }
+            
+            
+        });
+        
+      }
+
+      //check if the chat string starts with img_ => and handle not found error
+      function isImage(msg, container, con_class) {
+
+        if(msg.startsWith('img_')) {
+            container.classList.add(con_class);
+            let img = document.createElement('img');
+            img.src = "/chat_uploads/" + msg;
+            img.alt = "لا يمكن تحميل الصورة حاليا";
+            img.style.height = 'auto';
+            img.style.maxWidth = '300px';
+
+            img.onerror = e => {
+                container.innerHTML = "لا يمكن ايجاد هذه الصورة !";
+                container.style.background = "#eb2f06";
+            }
+            img.onload = e => {
+                container.append(img);
+                container.style.maxWidth = 'max-content';
+                container.style.width = 'max-content';
+                container.style.maxHeight = 'max-content';
+                container.style.padding = '2px';
+                container.style.height = img.height;
+                $('.chat-area').scrollTop($('.chat-area')[0].scrollHeight);
+            }
+            $('.chat-area').append(container);
+            
+
+            return true;
+        } else {
+            return false;
+        }
+      }
+
+      function fetch_chat() {
+        let id = $('.chat-send #text_form').attr('data-id');
+        $.ajax({
+            type: 'POST',
+            url: 'message_func',
+            data: {fetch_chat: 'fetch_chat', id: id},
+            success: (data) => {
+                displayMessages(data, id);
+            }
+        });
+        
+      }
+      fetch_chat();
+      $('.chat-area').scrollTop($('.chat-area')[0].scrollHeight);
+      setInterval(fetch_chat, 3000);
+
+
+      function checkMimbership() {
+            let content = `
+            <div class="blur"></div>
+                <div class="content">
+                    <div class="membership">
+                        العضوية الحالية : <span>عضوية عادية</span>
+                    </div>
+            
+                    <div class="notice">
+                        يمكنك ارسال 10 رسائل بحد أقصي لكل شخص <br> من فضلك قم بالترقية الي العضوية المميزة لكي تتمكن من ارسال عدد لا نهائي من الرسائل
+                    </div>
+                    <a href="upgrade" class="upgrade">الترقية الي العضوية المميزة</a>
+                </div>`;
+            let upgrade_container = document.createElement('div');
+            upgrade_container.classList.add('upgrade-first');
+            upgrade_container.innerHTML = content;
+
+            let chat_container = document.querySelector('.chat-container');
+            let numberOfSent = document.querySelectorAll('.sent').length;
+            if (numberOfSent >= 10 && !chat_container.contains(document.querySelector('.upgrade-first'))) {
+                chat_container.appendChild(upgrade_container);
+            }
+    }
+
+    window.onload = checkMimbership;
+    setInterval(checkMimbership, 1000);
+
+/*------------Upload Image Functions BEGIN-------------*/
+    function checkImage(img_input) {
+
+        let isImage = false;
+        for (let i = 0; i < img_input.files.length; i++) {
+            if (/^image\//.test(img_input.files[i].type)) {
+                isImage = true;
+            } else {
+                isImage = false;
+                ImageAlert("يمكنك رفع صور فقط", false);
+                img_input.files = null;
+            }
+        }
+        if (isImage) {
+            uploadImage(img_input);
+        }
+
+    }
+
+    //Not Image Handler
+    function ImageAlert(txt, isGood = false) {
+        if(isGood) 
+            $('#no-img-alert').css({'background-color':'#2ecc71', 'color':'white'});
+        else
+            $('#no-img-alert').css({'background-color':'#eb2f06', 'color':'white'});
+
+        $('#no-img-alert').text(txt);
+        $('#no-img-alert').slideDown();
+        setTimeout(e => $('#no-img-alert').slideUp(), 1500);
+    }
+
+    //Upload Image If All Is Will
+    function uploadImage(img_input) {
+        
+        let to_user_id = $('.chat-send #text_form').attr('data-id');
+        let image = img_input.files[0];
+        let fd = new FormData();
+
+        fd.append('image', image);
+        fd.append('id', to_user_id);
+        fd.append('upload_image', true);
+
+        $.ajax({
+            url: 'message_func',
+            type: 'POST',
+            data: fd,
+            contentType: false,
+            processData: false,
+            success: function(response){
+                if(response) {
+                    ImageAlert('تم رفع الصورة بنجاح', true);
+                    fetch_chat();
+                } else {
+                    ImageAlert('حدثت مشكلة أثناء رفع الصورة', false);
+                }
+                $('.chat-area').scrollTop($('.chat-area')[0].scrollHeight);
+            }
+        });
+    }
+
+/*------------Upload Image Functions END-------------*/
+
+  </script>
+  </body>
+</html>

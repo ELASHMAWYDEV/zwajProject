@@ -1,0 +1,80 @@
+
+<div class="main-container">
+    <div class="page-position">
+        <h2>لوحة التحكم</h2>
+        <p>/</p>
+        <h6>البلاغات</h6>
+    </div>
+    <div class="container reports">
+        <div class="search-container">
+            <h3>البحث المتقدم</h3>
+            <div class="search-box">
+                <input type="text" placeholder="مقدم البلاغ">
+                <input type="text" placeholder="المبلغ عنه">
+                <div class="select-item">
+                    <select name="" id="" onclick="rotateSelect(this)">
+                        <option value="">سبب البلاغ</option>
+                        <option value="">مصر</option>
+                        <option value="">السعودية</option>
+                    </select>
+                    <span></span>
+                </div>
+                <div class="select-item">
+                    <select name="" id="" onclick="rotateSelect(this)">
+                        <option value="">الاجراء المتخذ</option>
+                        <option value="">مصر</option>
+                        <option value="">السعودية</option>
+                    </select>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="table-container">
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>مقدم البلاغ</th>
+                            <th>المبلغ عنه</th>
+                            <th>سبب البلاغ</th>
+                            <th>التاريخ</th>
+                            <th>الإجراء</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <?php foreach($this->reports as $report):?>
+                        <tr>
+                            <td><?php echo $report->id;?></td>
+                            <td><?php echo $report->reporter_username;?></td>
+                            <td><?php echo $report->reported_username;?></td>
+                            <td><?php echo $report->reason;?></td>
+                            <td><?php echo date('d/m/Y H:ma', strtotime($report->create_date));?></td>
+
+                            <?php if(!isset($report->action)):?>
+                            <td class="action">
+                                <form method="POST">
+                                    <input type="hidden" name="user_id" value="<?php echo $report->reported_id;?>">
+                                    <input type="hidden" name="report_id" value="<?php echo $report->id;?>">
+                                    <button class="btn-deactivate" type="submit" name="deactivate">تعطيل حساب المبلغ عنه</button>
+                                </form>
+                                <form method="POST">
+                                    <input type="hidden" name="report_id" value="<?php echo $report->id;?>">
+                                    <button class="btn-ignore" type="submit" name="ignore">تجاهل</button>
+                                </form>
+                            </td>
+                            <?php else:?>
+                            <td><?php echo $report->action;?></td>
+                            <?php endif;?>
+
+                        </tr>
+                        <?php endforeach;?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+            </div>
+        </div>
+    </div>
+</div>

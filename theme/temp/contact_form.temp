@@ -1,0 +1,100 @@
+<div id="infopar">
+
+    <p>زواج</p>
+    <span>إتصل بنا</span>
+    
+</div>
+
+<?php
+
+include 'includes/config.php';
+if($_POST['submit']) {
+    if(!empty($_POST['email_content']) && !empty($_POST['mail_rec'])) {
+      
+      if(isset($_SESSION['id'])) {
+        $id = htmlspecialchars($_SESSION['id']);
+        $email = htmlspecialchars($_POST['mail_rec']);
+        $message = htmlspecialchars($_POST['email_content']);
+        $reason = htmlspecialchars($_POST['reason']);
+        $result = $mysqli->query("INSERT INTO support (sender_id, email, reason, `message`) VALUES ('$id', '$email', '$reason', '$message')");
+        if($result->num_rows() != '0') {
+          echo '
+          <div class="sent">تم إرسال رسالتك إلى الإداره وسوف يتم الرد عليك في اقرب وقت ممكن</div>
+         ';
+        } else {
+          echo '<div class="sent">حدث خطأ ما</div>';
+        }
+
+      } else {
+        $email = htmlspecialchars($_POST['mail_rec']);
+        $message = htmlspecialchars($_POST['email_content']);
+        $reason = htmlspecialchars($_POST['reason']);
+        $result = $mysqli->query("INSERT INTO support (email, reason, `message`) VALUES ('$email', '$reason', '$message')");
+        if($result->num_rows() != '0') {
+          echo '
+          <div class="sent">تم إرسال رسالتك إلى الإداره وسوف يتم الرد عليك في اقرب وقت ممكن</div>
+         ';
+        } else {
+          echo '<div class="sent">حدث خطأ ما</div>';
+        }
+
+      }
+
+    } else {
+        echo '<div class="sent">يجب ملئ جميع البيانات</div>';
+    }
+}
+
+?>
+
+<div id="contact">
+    <form action="" method="post" name="contact_form">
+        
+    <label>إختر السبب</label>
+    <label>
+        <select name="reason">
+         <option value="0">إختر سبب المراسله</option>
+         <option value="مشكله في الحساب">مشكله في الحساب</option>
+         <option value="مشكله في الدفع">مشكله في الدفع</option>
+         <option value="عضويات غير جاده">عضويات غير جاده</option>
+         <option value="إستفسارات عامه">إستفسارات عامه</option>
+        </select>
+    </label>
+    <label>البريد الإلكتروني</label>
+    <label>
+        <?php if(isset($_SESSION['id'])) {
+            
+            echo '<input type="email" name="mail_rec" placeholder="البريد الآلكتروني" readonly value="' . $_SESSION['email'] . '"/>';
+
+        } else {
+            echo '<input type="email" name="mail_rec" placeholder="البريد الآلكتروني" />';
+        }
+
+        ?>
+    </label>
+    <label>
+        <textarea name="email_content" placeholder="وضح المشكله" style="padding: 15px;box-sizing: border-box;"></textarea>
+    </label>
+    <label>
+        <input type="submit" name="submit" value="إرسال" />
+    </label>
+    
+    </form>
+        
+</div>
+
+
+<script>
+    let contact_form = document.forms['contact_form'];
+
+    contact_form.onsubmit = e => {
+        if(contact_form['reason'].selectedIndex == '0') {
+            e.preventDefault();
+            let alert = document.createElement('div');
+            alert.classList.add('sent');
+            alert.style.border = 'none';
+            alert.appendChild(document.createTextNode('يجب اختيار سبب المراسلة'));
+            document.querySelector('#infopar').after(alert);
+        }
+    }
+</script>

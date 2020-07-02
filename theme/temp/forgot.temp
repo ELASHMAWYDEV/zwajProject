@@ -1,0 +1,11 @@
+<div id="infopar">
+    <p>إسترجاع الحساب</p>
+</div>
+<?=forgotproc();?>
+<div id="forgot">
+    <form action="" method="post">
+    <p>البريد الإلكتروني</p>
+    <label><input type="email" name="email" placeholder="اكتب البريد الالكتروني" /></label>
+    <label><input type="submit" name="submit" value="إسترجاع" /></label>
+    </form>
+</div>

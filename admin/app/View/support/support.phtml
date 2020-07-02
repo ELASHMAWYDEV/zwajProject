@@ -1,0 +1,131 @@
+
+<div class="main-container">
+    <div class="page-position">
+        <h2>لوحة التحكم</h2>
+        <p>/</p>
+        <h6>الدعم الفني</h6>
+    </div>
+    <div class="container support">
+        <div class="search-container">
+            <h3>البحث المتقدم</h3>
+            <div class="search-box">
+                <input type="text" placeholder="الراسل">
+                <div class="select-item">
+                    <select name="" id="" onclick="rotateSelect(this)">
+                        <option value="">سبب المراسلة</option>
+                        <option value="">مصر</option>
+                        <option value="">السعودية</option>
+                    </select>
+                    <span></span>
+                </div>
+                <div class="select-item">
+                    <select name="" id="" onclick="rotateSelect(this)">
+                        <option value="">التاريخ</option>
+                        <option value="">مصر</option>
+                        <option value="">السعودية</option>
+                    </select>
+                    <span></span>
+                </div>
+                <div class="select-item">
+                    <select name="" id="" onclick="rotateSelect(this)">
+                        <option value="">الاجراء المتخذ</option>
+                        <option value="">مصر</option>
+                        <option value="">السعودية</option>
+                    </select>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="table-container">
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>الراسل</th>
+                            <th>البريد الالكتروني</th>
+                            <th>سبب المراسلة</th>
+                            <th>الرسالة</th>
+                            <th>التاريخ</th>
+                            <th>الإجراء</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($this->messages as $msg):?>
+                        <tr>
+                            <td><?=$msg->id?></td>
+                            <td><?=$msg->sender?></td>
+                            <td><?=$msg->email?></td>
+                            <td><?=$msg->reason?></td>
+                            <td><button class="btn-show" onclick="get_message(this);" data-id="<?=$msg->id?>" data-sender="<?=$msg->sender?>" data-email="<?=$msg->email?>" data-reason="<?=$msg->reason?>" data-msg="<?=$msg->message?>">عرض الرسالة</button></td>
+                            <td><?=$msg->create_date?></td>
+                            <td class="action">
+                                <?php if(empty($msg->action)):?>
+                                <form method="POST" onsubmit="let msg = prompt('اكتب الرد الذي تريد ارساله الي المستخدم','لقد اطلعنا علي رسالتك في موقع زواج وهي الأن قيد المراجع من قبل المدير');this['respond'].setAttribute('value', msg);">
+                                    <input type="hidden" name="id" value="<?=$msg->id?>">
+                                    <button class="btn-respond" type="submit" data-id="<?=$msg->id?>" name="respond">رد</button>
+                                </form>
+                                <form method="POST" onsubmit="return confirm('هل أنت متأكد من أنك تريد تجاهل الرسالةرقم <?=$msg->id?> ؟ لن يمكنك الرد عليها فيما بعد !')">
+                                    <input type="hidden" name="id" value="<?=$msg->id?>">
+                                    <button class="btn-ignore" type="submit" name="ignore">تجاهل</button>
+                                </form>
+                                <?php else:?>
+                                <?=$msg->action?>
+                                <?php endif;?>
+                            </td>
+                        </tr>
+                        <?php endforeach;?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+            </div>
+        </div>             
+    </div>
+</div>
+
+<!--show message Box BEGIN-->
+<div class="float-box-container">
+
+    <div class="show-message-box">
+        <!--Closing Tag Start-->
+        <div class="closing" onclick="closeBox(this)">
+            <span></span>
+            <span></span>
+        </div>
+        <!--Closing Tag END-->
+        <form method="POST" onsubmit="show_message(this)">
+            <input type="hidden" name="id">
+            <h3>عرض الرسالة رقم <span class="message_id"></span></h3>
+            <div class="input-items">
+                <div class="input-item">
+                    <label>الرسالة</label>
+                    <textarea id="msg" disabled></textarea>
+                </div>
+                <div class="input-item">
+                    <label>الراسل</label>
+                    <input type="text" id="sender" disabled>
+                </div>
+                <div class="input-item">
+                    <label>البريد الالكتروني</label>
+                    <input type="text" id="email" disabled>
+                </div>
+                <div class="input-item">
+                    <label>سبب المراسلة</label>
+                    <input type="text" id="reason" disabled>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--show message Box END-->
+
+
+
+<script>
+
+    function respond(form) {
+        
+    }
+                                    
+</script>

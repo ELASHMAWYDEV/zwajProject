@@ -1,0 +1,38 @@
+#forgot{
+ padding:5px;
+ background:#ffffff;
+ width:7in;
+ border-radius:5px;
+ margin:0 auto;
+ direction:rtl;
+ text-align:center;
+}
+#forgot p{
+    color:#555;
+}
+#forgot label{
+    display:block;
+}
+#forgot label input{
+    width:80%;
+    border:1px #eee solid;
+    padding:10px;
+    border-radius:5px;
+}
+#forgot label input[type="submit"]{
+    width:2in;
+    background:#0089ff;
+    color:#ffffff;
+    cursor:pointer;
+}
+.okay{
+    text-align:center;
+    color:#ffffff;
+    padding:5px;
+}
+
+@media only screen and (max-width: 710px) {
+    #forgot{
+        width:80vw;
+    }
+}

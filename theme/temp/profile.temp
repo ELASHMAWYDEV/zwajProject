@@ -1,0 +1,10 @@
+<div id="infopar">
+ <p><?=profusername();?></p>
+</div>
+<?=checkme();?>
+<div id="profile" <?=checkprof();?>>
+ <div class="p-img"><?=profimg();?></div>
+ <div class="p-info">
+  <?=profinfo();?> 
+ </div>
+</div>

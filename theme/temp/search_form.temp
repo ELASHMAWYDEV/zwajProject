@@ -1,0 +1,6 @@
+<div id="infopar">
+ <p>البحث</p>
+</div>
+<div id="searchform">
+ <?=search_results();?>
+</div>

@@ -1,0 +1,19 @@
+.reports {
+    .search-container {
+        @include search-container;
+    }
+
+    .table-container {
+        @include table-container;
+        .btn-deactivate {
+            @include btn-adv($light-purple,$dark-purple);
+            padding: 2px 10px;
+            font-size: 12px;
+        }
+        .btn-ignore {
+            @include btn-adv($light-red,$dark-red);
+            padding: 2px 10px;
+            font-size: 12px;
+        }
+    }
+}

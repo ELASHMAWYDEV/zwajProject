@@ -1,0 +1,14 @@
+#searchform{
+    direction:rtl;
+    background:#ffffff;
+    padding:5px;
+    width:7in;
+    margin:0 auto;
+    border-radius:5px;
+}
+
+@media only screen and (max-width:710px){
+    #searchform{
+        width:80%;
+    }
+}

@@ -1,0 +1,10 @@
+<div id="navbar">
+ <div class="nav-right"> <p>زواج</p> </div>
+ <div class="nav-left">
+ 	<a href="index"><i class="fas fa-home"></i> الرئيسيه</a>
+ 	<a href="stories"><i class="far fa-question-circle"></i> تجارب</a> 
+ 	<?=navCheck();?>
+ 	<a href="contact"><i class="far fa-envelope"></i> اتصل بنا</a>
+ 	<?=navLogout();?>
+ </div>
+</div>
