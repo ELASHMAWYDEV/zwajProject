@@ -1,3 +1,32 @@
+<?php
+define('PAYPAL_ID', 'hodamedoraiana1122@gmail.com'); //PUT YOUR PAYPAL BUSSINESS EMAIL ADDRESS HERE
+define('PRICE', 10); //THE PRICE OF THE MEMBERSHIP
+
+
+
+if(isset($_SERVER['HTTPS'])) {
+    $secured = "https://";
+}
+else {
+    $secured = "http://";
+}
+$domain = $secured . $_SERVER['HTTP_HOST'];
+
+define('PAYPAL_SANDBOX', TRUE); //TRUE or FALSE 
+define('PAYPAL_RETURN_URL', $domain . '/upgrade-success'); 
+define('PAYPAL_CANCEL_URL', $domain . '/upgrade-cancel'); 
+define('PAYPAL_NOTIFY_URL', $domain . '/dashboard'); 
+define('PAYPAL_CURRENCY', 'USD'); 
+
+// Change not required 
+define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cgi-bin/webscr":"https://www.paypal.com/cgi-bin/webscr");
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,18 +83,20 @@
             font-size: 20px;
             font-weight: 500;
         }
-        .payment-card a {
+        .payment-card input[type="submit"] {
             display: inline-block;
             border-radius: 5px;
             padding: 5px 35px;
             background-color: #0984e3;
             border: 2px solid #2980b9;
-            color: #fff
+            color: #fff;
+            cursor: pointer;
+
         }
-        .payment-card a:hover {
+        .payment-card input[type="submit"]:hover {
             background-color: #2980b9;
         }
-        .payment-card a:active {
+        .payment-card input[type="submit"]:active {
             transform: scale(0.95);
         }
         .payment-card li {
@@ -81,6 +112,7 @@
 </head>
 <body>
 
+
     <div class="payments-container">
         <h3><span>باقة واحدة</span> تضمن لك راحة البال وليالي مراسلة طوال</h3>
 
@@ -92,8 +124,28 @@
                     <li>عدد لانهائي من الاعجابات</li>
                     <li>يمكنك مراسلة جميع الأعضاء</li>
                     <li>يمكنك حظر الأعضاء</li>
-                    <li>السعر:  الشهر/<span style="color:#000; font-weight:600;">$10</span></li>
-                    <li><a href="#">دفع</a></li>
+                    <li>السعر:  الشهر/<span style="color:#000; font-weight:600;">$<?=PRICE?></span></li>
+                    <li>
+                        <!-- PayPal payment form for displaying the buy button -->
+                        <!-- <form action="<?php echo PAYPAL_URL; ?>" method="post">
+                            <input type="hidden" name="business" value="<?php echo PAYPAL_ID; ?>">                                                                                                
+                            <input type="hidden" name="cmd" value="_xclick">                                                                                        
+                            <input type="hidden" name="item_name" value="عضوية مميزة">
+                            <input type="hidden" name="amount" value="<?=PRICE?>">
+                            <input type="hidden" name="currency_code" value="<?php echo PAYPAL_CURRENCY; ?>">
+                            <input type="hidden" name="return" value="<?php echo PAYPAL_RETURN_URL; ?>">
+                            <input type="hidden" name="cancel_return" value="<?php echo PAYPAL_CANCEL_URL; ?>"> 
+                            <input type="hidden" name="notify_url" value="<?php echo PAYPAL_NOTIFY_URL; ?>">                                                                                               
+                            <input type="submit" name="submit" value="شراء">
+                        </form> -->
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="VP7V25EPZ8XRQ">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                        </form>
+
+                    </li>
                 </ul>
             </div>
         </div>

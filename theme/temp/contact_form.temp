@@ -54,6 +54,7 @@ if($_POST['submit']) {
     <label>
         <select name="reason">
          <option value="0">إختر سبب المراسله</option>
+         <option value="تفعيل العضوية المميزة">تفعيل العضوية المميزة</option>
          <option value="مشكله في الحساب">مشكله في الحساب</option>
          <option value="مشكله في الدفع">مشكله في الدفع</option>
          <option value="عضويات غير جاده">عضويات غير جاده</option>

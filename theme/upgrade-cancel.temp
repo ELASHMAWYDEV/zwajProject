@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="theme/css/user.css" />
+    <link rel="stylesheet" type="text/css" href="lib/fontawesome/css/all.css" />
+    <link rel="icon"
+      type="image/png"
+      href="theme/img/favicon.png" />
+    <script type="text/javascript" src="lib/jquery/jquery.js"></script>
+    <title>Zwaj</title>
+    <?=navbar();?>
+    <?=res_navbar();?>
+
+    <style>
+        /*Added By ELASHMAWY DEV*/
+        .cancel-container {
+            padding: 50px 20px;
+            background-color: #fff;
+            max-width: 500px;
+            margin: 50px auto;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .msg {
+            font-size: 24px;
+            font-weight: 700;
+            color: #eb4d4b;
+        }
+        .msg span {
+            font-size: 20px;
+            font-weight: 500;
+            color: #000;
+        }
+    </style>
+    </head>
+<body>
+
+<div class="cancel-container">
+    <div class="msg">لقد قمت بإلغاء عملية الشراء<br><span>لكن مازال يمكنك شراء العضوية المميزة في أي وقت <a href="/upgrade">من هنا</a></span></div>
+</div>
+
+
+<?=footer();?>
+<script type="text/javascript" src="theme/js/main.js"></script>
+</body>
+</html>
