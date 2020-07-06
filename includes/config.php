@@ -12,9 +12,9 @@ ini_set('errors_log', 'errors.log');
 @
 */
 $db_host  = 'localhost';
-$db_user  = 'zawghiv_zwaj';
+$db_user  = 'zawghivc_zwaj';
 $db_pass  = 'zawghiv1234$';
-$db_name  = 'zawghiv_zwaj';
+$db_name  = 'zawghivc_zwaj';
 #
 #mysqli class
 #
@@ -25,6 +25,7 @@ $mysqli = new mysqli;
 $mysqli->connect($db_host,$db_user,$db_pass,$db_name);
 $mysqli->set_charset('utf8');
 #
+if(!$mysqli) die($mysqli->error);
 #THEME-CONFIG
 #
 ?>
