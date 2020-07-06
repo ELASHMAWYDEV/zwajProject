@@ -1,7 +1,12 @@
 <?php
+
+
 error_reporting(0);
 session_start();
 !isset($_GET['id']) ? header('location: dashboard') : null;
+if(!isset($_SESSION['username'])) {
+    header("location: dashboard");
+}
 #
 #include
 #database config
@@ -19,4 +24,6 @@ include 'functions/usr.fun';
 #theme & temp
 #
 include 'theme/report.temp';
+
+
 ?>

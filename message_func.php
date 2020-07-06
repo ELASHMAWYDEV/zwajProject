@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 include 'includes/config.php';
 
 if($_SERVER['REQUEST_METHOD'] != 'POST') {

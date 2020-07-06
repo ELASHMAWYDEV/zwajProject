@@ -9,7 +9,7 @@
  function usrSearch(){
  	include 'includes/config.php';
 
- 	$mysql_usr_gender = $mysqli->query("SELECT * FROM `users` WHERE `id`= \'" . $_SESSION['id'] . "'");
+ 	$mysql_usr_gender = $mysqli->query("SELECT * FROM `users` WHERE `id`= '" . $_SESSION['id'] . "'");
  	$fetch_usr_gender = $mysql_usr_gender->fetch_assoc();
 
  	if($fetch_usr_gender['gender'] == 1){
@@ -217,7 +217,7 @@
    }
 
 
-   $results_per_page   = 2;
+   $results_per_page   = 8;
 
 
    if(!isset($_GET['page'])){
@@ -231,7 +231,7 @@
    $queryGetUsersP = $mysqli->query("SELECT * FROM `users` WHERE `gender`='$search'");
    $queryGetUsers  = $mysqli->query("SELECT * FROM `users` WHERE `gender`='$search' LIMIT $this_page_first_result,$results_per_page");
 
-   $num_of_results     = $queryGetUsersP->num_rows;
+   $num_of_results = $queryGetUsersP->num_rows;
    $num_of_pages = ceil($num_of_results / $results_per_page);
 
    echo '<div id="loadusrs">';

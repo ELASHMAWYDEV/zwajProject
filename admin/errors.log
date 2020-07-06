@@ -105,3 +105,24 @@
 [01-Jul-2020 15:30:26 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
 [01-Jul-2020 15:30:26 UTC] PHP   3. usersAjax->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:21
 [01-Jul-2020 15:30:26 UTC] PHP   4. usersAjax->get_user_by_id() C:\wamp64\www\zwaj\admin\app\Ajax\usersAjax.php:9
+[06-Jul-2020 11:20:10 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[06-Jul-2020 11:20:10 UTC] PHP Stack trace:
+[06-Jul-2020 11:20:10 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[06-Jul-2020 11:20:10 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[06-Jul-2020 11:20:10 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[06-Jul-2020 11:20:14 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[06-Jul-2020 11:20:14 UTC] PHP Stack trace:
+[06-Jul-2020 11:20:14 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[06-Jul-2020 11:20:14 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[06-Jul-2020 11:20:14 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[06-Jul-2020 11:20:18 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[06-Jul-2020 11:20:18 UTC] PHP Stack trace:
+[06-Jul-2020 11:20:18 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[06-Jul-2020 11:20:18 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[06-Jul-2020 11:20:18 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[06-Jul-2020 11:21:06 UTC] PHP Warning:  Creating default object from empty value in C:\wamp64\www\zwaj\admin\app\Ajax\usersAjax.php on line 20
+[06-Jul-2020 11:21:06 UTC] PHP Stack trace:
+[06-Jul-2020 11:21:06 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[06-Jul-2020 11:21:06 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[06-Jul-2020 11:21:06 UTC] PHP   3. usersAjax->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:21
+[06-Jul-2020 11:21:06 UTC] PHP   4. usersAjax->get_user_by_id() C:\wamp64\www\zwaj\admin\app\Ajax\usersAjax.php:9
