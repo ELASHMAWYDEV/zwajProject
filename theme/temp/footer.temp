@@ -1,6 +1,6 @@
 <div id="footer">
- <p>زواج</p>
- جميع الحقوق محفوظه لدى منصه زواج
+ <p>زواج المتعايشين</p>
+جميع الحقوق محفوظه لدى منصه زواج المتعايشين
  <div class="footer-links"> <a href="index">الرئيسيه</a> <a href="stories">تجارب المستخدمين</a> <?php if($_SESSION['id']){}else{ echo '<a href="register">تسجيل</a> <a href="login">دخول</a>'; } ?> <a href="contact">اتصل بنا</a> </div>
  <div class="footer-img"><img src="theme/img/paypal.png" /></div>
 </div>

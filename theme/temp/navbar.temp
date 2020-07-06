@@ -1,5 +1,5 @@
 <div id="navbar">
- <div class="nav-right"> <p>زواج</p> </div>
+ <div class="nav-right" style="width: 250px; margin-right: 20px;"> <img style="width: 100%;" src="theme/img/logo.png" alt=""> </div>
  <div class="nav-left">
  	<a href="index"><i class="fas fa-home"></i> الرئيسيه</a>
  	<a href="stories"><i class="far fa-question-circle"></i> تجارب</a> 
