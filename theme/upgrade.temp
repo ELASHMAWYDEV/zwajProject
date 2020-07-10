@@ -76,6 +76,9 @@ define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cg
             color: #fff;
             border-radius: 7px;
             overflow: hidden;
+            height: max-content;
+            justify-self: center;
+            align-self: center;
         }
         .payment-card .head {
             padding: 10px;
@@ -106,6 +109,36 @@ define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cg
         .payment-card li:nth-last-child(1) {
             border: none;
         }
+        .cards {
+            display: flex;
+            direction: rtl;
+            
+        }
+        .pay-cards {
+            margin: 20px auto;
+        }
+        .pay-cards .card {
+            margin: 20px;
+            background-color: #e74c3c;
+            border: 2px solid #e74c3c;
+            color: #fff;
+            padding: 15px 10px;
+            border-radius: 7px;
+
+        }
+        .card .card-title {
+
+        }
+        .card .card-price {
+            color: #000;
+            font-weight: 700;
+            padding: 5px 0;
+            font-size: 18px;
+        }
+        .card .card-price span {
+            text-decoration: line-through;
+            color: #000;
+        }
     </style>
 
 
@@ -114,40 +147,76 @@ define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cg
 
 
     <div class="payments-container">
-        <h3><span>باقة واحدة</span> تضمن لك راحة البال وليالي مراسلة طوال</h3>
+        <h3><span>باقة واحدة</span>  تضمن لك خصوصيتك والاستفادة من المزايا راجين التوفيق للجميع</h3>
+        <div class="cards">
+            <div class="payment-card">
+                <div class="head"> &#9733; عضوية مميزة &#9733;</div>
+                <div class="content">
+                    <ul>
+                        <li>عدد لا نهائي من الرسائل</li>
+                        <li>عدد لانهائي من الاعجابات</li>
+                        <li>يمكنك مراسلة جميع الأعضاء</li>
+                        <li>يمكنك حظر الأعضاء</li>
+                        <li>معرفة من عمل لي اهتمام</li>
+                        <!-- <li>السعر:  الشهر/<span style="color:#000; font-weight:600;">$<?=PRICE?></span></li>
+                        <li>
+                            
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                <input type="hidden" name="cmd" value="_s-xclick">
+                                <input type="hidden" name="hosted_button_id" value="VP7V25EPZ8XRQ">
+                                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                            </form>
 
-        <div class="payment-card">
-            <div class="head"> &#9733; عضوية مميزة &#9733;</div>
-            <div class="content">
-                <ul>
-                    <li>عدد لا نهائي من الرسائل</li>
-                    <li>عدد لانهائي من الاعجابات</li>
-                    <li>يمكنك مراسلة جميع الأعضاء</li>
-                    <li>يمكنك حظر الأعضاء</li>
-                    <li>السعر:  الشهر/<span style="color:#000; font-weight:600;">$<?=PRICE?></span></li>
-                    <li>
-                        <!-- PayPal payment form for displaying the buy button -->
-                        <!-- <form action="<?php echo PAYPAL_URL; ?>" method="post">
-                            <input type="hidden" name="business" value="<?php echo PAYPAL_ID; ?>">                                                                                                
-                            <input type="hidden" name="cmd" value="_xclick">                                                                                        
-                            <input type="hidden" name="item_name" value="عضوية مميزة">
-                            <input type="hidden" name="amount" value="<?=PRICE?>">
-                            <input type="hidden" name="currency_code" value="<?php echo PAYPAL_CURRENCY; ?>">
-                            <input type="hidden" name="return" value="<?php echo PAYPAL_RETURN_URL; ?>">
-                            <input type="hidden" name="cancel_return" value="<?php echo PAYPAL_CANCEL_URL; ?>"> 
-                            <input type="hidden" name="notify_url" value="<?php echo PAYPAL_NOTIFY_URL; ?>">                                                                                               
-                            <input type="submit" name="submit" value="شراء">
-                        </form> -->
-                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="pay-cards">
+                <div class="card">
+                    <div class="card-title">لمدة شهر</div>
+                    <div class="card-price">10$</div>
+                    <div class="card-button">
+
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" name="10_form">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="93F3LFQLQX4AN">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/ar_EG/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">لمدة ثلاثة أشهر</div>
+                    <div class="card-price">25$ بدلا من <span>30$</span></div>
+                    <div class="card-button">
+
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" name="25_form">
                             <input type="hidden" name="cmd" value="_s-xclick">
-                            <input type="hidden" name="hosted_button_id" value="VP7V25EPZ8XRQ">
+                            <input type="hidden" name="hosted_button_id" value="GUTF45ANZ5EA8">
                             <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/ar_EG/i/scr/pixel.gif" width="1" height="1">
                         </form>
 
-                    </li>
-                </ul>
-            </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">لمدة عام كامل</div>
+                    <div class="card-price">100$ بدلا من <span>120$</span></div>
+                    <div class="card-button">
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" name="100_form">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="MST9H4RTWRGJG">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/ar_EG/i/scr/pixel.gif" width="1" height="1">
+                        </form>
+
+                        
+                    </div>
+                </div>
+            </div>          
         </div>
     </div>
     
@@ -155,6 +224,56 @@ define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cg
 
 
 <?=footer();?>
+
+
+
+<script>
+
+    //sending payment notification to the admin
+    let form10 = document.forms['10_form'];
+    let form25 = document.forms['25_form'];
+    let form100 = document.forms['100_form'];
+
+    form10.onsubmit = e => {
+        $.ajax({
+            method: 'POST',
+            url: 'upgrade-func',
+            data: {new_payment:'new_payment', user_id:`<?=$_SESSION['id']?>`, package:'شهر'},
+            success: (result) => {
+                if(result == 0) {
+                    e.preventDefault();
+                }
+            }
+        });
+    }
+
+    form25.onsubmit = e => {
+        $.ajax({
+            method: 'POST',
+            url: 'upgrade-func',
+            data: {new_payment:'new_payment', user_id:`<?=$_SESSION['id']?>`, package:'ثلاثة أشهر'},
+            success: (result) => {
+                if(result == 0) {
+                    e.preventDefault();
+                }
+            }
+        });
+    }
+
+    form100.onsubmit = e => {
+        $.ajax({
+            method: 'POST',
+            url: 'upgrade-func',
+            data: {new_payment:'new_payment', user_id:`<?=$_SESSION['id']?>`, package:'عام كامل'},
+            success: (result) => {
+                if(result == 0) {
+                    e.preventDefault();
+                }
+            }
+        });
+    }
+</script>
+
 <script type="text/javascript" src="theme/js/main.js"></script>
 </body>
 </html>

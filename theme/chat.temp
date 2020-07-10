@@ -36,7 +36,7 @@
             </div>
             <div class="user-details">
                 <div class="username">اسم المستخدم : <span>'.$user['username'].'</span></div>
-                <div class="last-seen">أخر تواجد: <span>منذ 5 أيام</span></div>
+                <!--<div class="last-seen">أخر تواجد: <span>منذ 5 أيام</span></div>-->
                 <div class="show-data"><a href="/profile?id='.$user['id'].'" target="_blank">تفقد البيانات</a></div>
             </div>
           </div>
@@ -60,6 +60,17 @@
           ';
       }
     }
+
+    $sql = "SELECT * FROM users WHERE id = '" . $_SESSION['id'] . "' LIMIT 1";
+    $user = $mysqli->query($sql);
+    if ($user->num_rows != 0) {
+        $user = $user->fetch_assoc();
+        echo "
+        <script>
+            var account_type = ". $user['account_type'] ."
+        </script>
+        ";
+    } 
   }
 
 
@@ -535,6 +546,7 @@
       }
 
       //check if the chat string starts with img_ => and handle not found error
+      var scrolled = false;
       function isImage(msg, container, con_class) {
 
         if(msg.startsWith('img_')) {
@@ -557,9 +569,10 @@
                 container.style.padding = '2px';
                 container.style.height = img.height;
                 $('.chat-area').scrollTop($('.chat-area')[0].scrollHeight);
+
             }
             $('.chat-area').append(container);
-            
+
 
             return true;
         } else {
@@ -575,16 +588,21 @@
             data: {fetch_chat: 'fetch_chat', id: id},
             success: (data) => {
                 displayMessages(data, id);
+                
             }
         });
         
       }
       fetch_chat();
-      $('.chat-area').scrollTop($('.chat-area')[0].scrollHeight);
+      if(!scrolled) {
+        $('.chat-area').scrollTop($('.chat-area')[0].scrollHeight);
+        scrolled = true;
+      }
       setInterval(fetch_chat, 3000);
 
-
       function checkMimbership() {
+        if(account_type == 0) {
+
             let content = `
             <div class="blur"></div>
                 <div class="content">
@@ -606,6 +624,7 @@
             if (numberOfSent >= 10 && !chat_container.contains(document.querySelector('.upgrade-first'))) {
                 chat_container.appendChild(upgrade_container);
             }
+        }
     }
 
     window.onload = checkMimbership;

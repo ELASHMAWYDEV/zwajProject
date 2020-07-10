@@ -126,3 +126,103 @@
 [06-Jul-2020 11:21:06 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
 [06-Jul-2020 11:21:06 UTC] PHP   3. usersAjax->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:21
 [06-Jul-2020 11:21:06 UTC] PHP   4. usersAjax->get_user_by_id() C:\wamp64\www\zwaj\admin\app\Ajax\usersAjax.php:9
+[10-Jul-2020 01:43:01 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[10-Jul-2020 01:43:01 UTC] PHP Stack trace:
+[10-Jul-2020 01:43:01 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 01:43:01 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 01:43:01 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[10-Jul-2020 01:43:16 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[10-Jul-2020 01:43:16 UTC] PHP Stack trace:
+[10-Jul-2020 01:43:16 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 01:43:16 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 01:43:16 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[10-Jul-2020 01:43:21 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[10-Jul-2020 01:43:21 UTC] PHP Stack trace:
+[10-Jul-2020 01:43:21 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 01:43:21 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 01:43:21 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[10-Jul-2020 13:23:04 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[10-Jul-2020 13:23:04 UTC] PHP Stack trace:
+[10-Jul-2020 13:23:04 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 13:23:04 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 13:23:04 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[10-Jul-2020 13:23:08 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[10-Jul-2020 13:23:08 UTC] PHP Stack trace:
+[10-Jul-2020 13:23:08 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 13:23:08 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 13:23:08 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[10-Jul-2020 13:23:12 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[10-Jul-2020 13:23:12 UTC] PHP Stack trace:
+[10-Jul-2020 13:23:12 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 13:23:12 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 13:23:12 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[10-Jul-2020 13:23:15 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[10-Jul-2020 13:23:15 UTC] PHP Stack trace:
+[10-Jul-2020 13:23:15 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 13:23:15 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 13:23:15 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[10-Jul-2020 13:23:25 UTC] PHP Notice:  Undefined property: View::$payments in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 54
+[10-Jul-2020 13:23:25 UTC] PHP Stack trace:
+[10-Jul-2020 13:23:25 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 13:23:25 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 13:23:25 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[10-Jul-2020 13:23:25 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[10-Jul-2020 13:23:25 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[10-Jul-2020 13:23:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 54
+[10-Jul-2020 13:23:25 UTC] PHP Stack trace:
+[10-Jul-2020 13:23:25 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 13:23:25 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 13:23:25 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[10-Jul-2020 13:23:25 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[10-Jul-2020 13:23:25 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[10-Jul-2020 13:24:04 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[10-Jul-2020 13:24:04 UTC] PHP Stack trace:
+[10-Jul-2020 13:24:04 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 13:24:04 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 13:24:04 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[10-Jul-2020 13:24:08 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[10-Jul-2020 13:24:08 UTC] PHP Stack trace:
+[10-Jul-2020 13:24:08 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 13:24:08 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 13:24:08 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[10-Jul-2020 13:24:32 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'zwaj.paymetns' doesn't exist in C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:61
+Stack trace:
+#0 C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php(61): PDOStatement->execute(Array)
+#1 C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php(11): paymentsController->confirmPayment('2', '14')
+#2 C:\wamp64\www\zwaj\admin\app\Core\Application.php(16): paymentsController->__construct()
+#3 C:\wamp64\www\zwaj\admin\index.php(34): Application->__construct()
+#4 {main}
+  thrown in C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php on line 61
+[10-Jul-2020 13:28:46 UTC] PHP Warning:  Creating default object from empty value in C:\wamp64\www\zwaj\admin\app\Ajax\usersAjax.php on line 20
+[10-Jul-2020 13:28:46 UTC] PHP Stack trace:
+[10-Jul-2020 13:28:46 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 13:28:46 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 13:28:46 UTC] PHP   3. usersAjax->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:21
+[10-Jul-2020 13:28:46 UTC] PHP   4. usersAjax->get_user_by_id() C:\wamp64\www\zwaj\admin\app\Ajax\usersAjax.php:9
+[10-Jul-2020 14:33:04 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[10-Jul-2020 14:33:04 UTC] PHP Stack trace:
+[10-Jul-2020 14:33:04 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 14:33:04 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 14:33:04 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[10-Jul-2020 14:33:09 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[10-Jul-2020 14:33:09 UTC] PHP Stack trace:
+[10-Jul-2020 14:33:09 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 14:33:09 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 14:33:09 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[10-Jul-2020 14:34:44 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[10-Jul-2020 14:34:44 UTC] PHP Stack trace:
+[10-Jul-2020 14:34:44 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 14:34:44 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 14:34:44 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[10-Jul-2020 14:35:11 UTC] PHP Warning:  Creating default object from empty value in C:\wamp64\www\zwaj\admin\app\Ajax\usersAjax.php on line 20
+[10-Jul-2020 14:35:11 UTC] PHP Stack trace:
+[10-Jul-2020 14:35:11 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 14:35:11 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 14:35:11 UTC] PHP   3. usersAjax->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:21
+[10-Jul-2020 14:35:11 UTC] PHP   4. usersAjax->get_user_by_id() C:\wamp64\www\zwaj\admin\app\Ajax\usersAjax.php:9
+[10-Jul-2020 14:35:24 UTC] PHP Warning:  Creating default object from empty value in C:\wamp64\www\zwaj\admin\app\Ajax\usersAjax.php on line 20
+[10-Jul-2020 14:35:24 UTC] PHP Stack trace:
+[10-Jul-2020 14:35:24 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[10-Jul-2020 14:35:24 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[10-Jul-2020 14:35:24 UTC] PHP   3. usersAjax->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:21
+[10-Jul-2020 14:35:24 UTC] PHP   4. usersAjax->get_user_by_id() C:\wamp64\www\zwaj\admin\app\Ajax\usersAjax.php:9

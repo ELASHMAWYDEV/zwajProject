@@ -46,26 +46,36 @@
                             <th>اسم المستخدم</th>
                             <th>الباقة</th>
                             <th>تاريخ المعاملة</th>
-                            <th>صالحة حتي</th>
                             <th>وسيلة الدفع</th>
                             <th>الإجراء</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php for($i=0;$i <= 14;$i++) {?>
+                        <?php foreach($this->payments as $payment):?>
                         <tr>
-                            <td>1</td>
-                            <td>اسم المستخدم</td>
-                            <td>الباقة</td>
-                            <td>تاريخ المعاملة</td>
-                            <td>صالحة حتي</td>
-                            <td>وسيلة الدفع</td>
+                            <td><?=$payment->id?></td>
+                            <td><?=$payment->user?></td>
+                            <td><?=$payment->package?></td>
+                            <td><?=$payment->create_date?></td>
+                            <td><?=$payment->method?></td>
                             <td class="action">
-                                <button class="btn-confirm">تأكيد</button>
-                                <button class="btn-unvalid">غير صالحة</button>
+                                <?php if(empty($payment->status)):?>
+                                    <form method="POST">
+                                        <input type="hidden" name="id" value="<?=$payment->id?>">
+                                        <input type="hidden" name="user_id" value="<?=$payment->user_id?>">
+                                        <button class="btn-confirm" name="confirm">تأكيد</button>
+                                    </form>
+                                    <form method="POST">
+                                        <input type="hidden" name="id" value="<?=$payment->id?>">
+                                        <input type="hidden" name="user_id" value="<?=$payment->user_id?>">
+                                        <button class="btn-unvalid" name="unvalid">غير صالحة</button>
+                                    </form>
+                                <?php else:?>
+                                    <?=$payment->status?>
+                                <?php endif; ?>
                             </td>
                         </tr>
-                        <?php }?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

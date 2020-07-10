@@ -88,6 +88,16 @@ class usersController extends Controller
                     default:
                         $user->state = 'غير محدد';
                 }
+
+                switch($user->account_type) {
+                    case '0':
+                        $user->account_type = 'عادية';
+                    break;
+
+                    case '1':
+                        $user->account_type = 'مميزة';
+                    break;
+                }
             }
         }
         else

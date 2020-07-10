@@ -41,8 +41,10 @@
     <p>يمكنك مراسلتنا <a href="/contact">من هنا</a> لجعل عملية تفعيل العضوية أسرع</p>
 </div>
 
-<?php var_dump($_POST);?>
+
 <?=footer();?>
 <script type="text/javascript" src="theme/js/main.js"></script>
 </body>
 </html>
+
+
