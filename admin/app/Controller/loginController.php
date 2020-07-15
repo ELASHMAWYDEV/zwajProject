@@ -9,6 +9,8 @@ class loginController extends Controller
     {
         parent::__construct();
 
+        //update users mimbership
+        $this->updateMimberships();
         //check if logged in
         $this->loggedIn();
 
@@ -63,6 +65,26 @@ class loginController extends Controller
         else
         {
             array_push($this->errors, 'هناك خطأ في كلمة المرور أو البريد الالكتروني');
+        }
+    }
+
+
+
+    public function updateMimberships()
+    {
+        //update membership status
+        $sql = "SELECT * FROM users";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+
+        $users = $stmt->fetchAll();
+
+        foreach($users as $user) {
+            if(strtotime($user->special_account_deadline) < time()) {
+                $sql = "UPDATE users SET account_type = '0', special_account_deadline = NULL WHERE id = ? LIMIT 1";
+                $stmt = $this->db->prepare($sql);
+                $stmt->execute([$user->id]);
+            }
         }
     }
 }

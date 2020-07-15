@@ -41,7 +41,7 @@
 
 			//update membership status
 			if(strtotime($query_data['special_account_deadline']) < time());
-				$mysqli->query("UPDATE users SET account_type = '0' WHERE id = " . $_SESSION['id'] . " LIMIT 1");
+				$mysqli->query("UPDATE users SET account_type = '0', special_account_deadline = NULL WHERE id = " . $_SESSION['id'] . " LIMIT 1");
 
  			header("location: dashboard");
  		}

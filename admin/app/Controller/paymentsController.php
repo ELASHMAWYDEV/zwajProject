@@ -62,7 +62,7 @@ class paymentsController extends Controller
 
         if($stmt->rowCount() == '1') {
 
-            $sql = "UPDATE users SET account_type = '1' WHERE id = ?";
+            $sql = "UPDATE users SET account_type = '1',  WHERE id = ?";
             $stmt = $this->db->prepare($sql);
             $stmt->execute([$user_id]);
 

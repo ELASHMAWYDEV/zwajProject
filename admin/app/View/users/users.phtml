@@ -67,7 +67,7 @@
                             <td><?=$user->id?></td>
                             <td><?=$user->username?></td>
                             <td><?=$user->status?></td>
-                            <td><?=$user->account_type?></td>
+                            <td><?=$user->account_type_txt?></td>
                             <td><?=$user->special_account_deadline?></td>
                             <td><?=$user->email?></td>
                             <td><?=$user->full_name?></td>
@@ -76,7 +76,7 @@
                             <td><?=$user->state?></td>
                             <td><?=$user->phone_number?></td>
                             <td class="action"><button data-user-id="<?=$user->id?>" class="btn-edit" onclick="get_user_info(this);">جميع البيانات</button>
-                            <img data-user-id="<?=$user->id?>" data-ban="<?=$user->ban?>"  src="<?php echo PUBLIC_URL;?>assets/img/pencil.svg" alt="تعديل" title="تعديل البيانات" onclick="get_user_edit(this);"></td>
+                            <img data-user-id="<?=$user->id?>" data-ban="<?=$user->ban?>" data-account-type="<?=$user->account_type?>" src="<?php echo PUBLIC_URL;?>assets/img/pencil.svg" alt="تعديل" title="تعديل البيانات" onclick="get_user_edit(this);"></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -127,7 +127,7 @@
             </form>
 
         </div>
-        <div class="input-items">
+        <div class="input-items" id="upgrade-forms">
             <!--Upgrade User #1 month-->
             <form method="POST">
                 <input type="hidden" name="id">
@@ -147,6 +147,14 @@
                 <input type="hidden" name="id">
                 <input type="hidden" name="plan" value="12">
                 <div class="input-item"><button class="upgrade-btn" name="upgrade_special" type="submit">ترقية لمدة عام</button></div>
+            </form>
+        </div>
+
+        <div class="input-items" id="disupgrade-form">
+            <!--Disupgrade User-->
+            <form method="POST">
+                <input type="hidden" name="id">
+                <div class="input-item"><button class="disupgrade-btn" name="disupgrade" type="submit">تحويل الي عضوية عادية</button></div>
             </form>
         </div>
     </div>
@@ -193,6 +201,13 @@
             show(document.forms['activate_user']);
         }
         
+        if(el.getAttribute('data-account-type') == 1) {
+            show(edit_user_box.querySelector('#disupgrade-form'));
+            hide(edit_user_box.querySelector('#upgrade-forms'));
+        } else {
+            hide(edit_user_box.querySelector('#disupgrade-form'));
+            show(edit_user_box.querySelector('#upgrade-forms'));
+        }
 
         popupBox('.edit-user-box');
     }

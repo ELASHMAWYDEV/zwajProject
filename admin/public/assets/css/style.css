@@ -1907,7 +1907,7 @@
   margin-bottom: 10px;
 }
 
-.edit-user-box .deactivate-btn {
+.edit-user-box .deactivate-btn, .edit-user-box .disupgrade-btn {
   cursor: pointer;
   background-color: #9B59B6;
   border: 1.5px solid #8E44AD;
@@ -1923,11 +1923,11 @@
   font-size: 16px;
 }
 
-.edit-user-box .deactivate-btn:hover {
+.edit-user-box .deactivate-btn:hover, .edit-user-box .disupgrade-btn:hover {
   background-color: #8E44AD;
 }
 
-.edit-user-box .deactivate-btn:active {
+.edit-user-box .deactivate-btn:active, .edit-user-box .disupgrade-btn:active {
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
   -webkit-transition: 0s ease;

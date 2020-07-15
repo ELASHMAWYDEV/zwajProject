@@ -6,3 +6,27 @@ Stack trace:
 #3 C:\wamp64\www\zwaj\admin\index.php(34): Application->__construct()
 #4 {main}
   thrown in C:\wamp64\www\zwaj\admin\app\Controller\usersController.php on line 181
+[15-Jul-2020 18:10:12 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[15-Jul-2020 18:10:12 UTC] PHP Stack trace:
+[15-Jul-2020 18:10:12 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[15-Jul-2020 18:10:12 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[15-Jul-2020 18:10:12 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[15-Jul-2020 18:10:18 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[15-Jul-2020 18:10:18 UTC] PHP Stack trace:
+[15-Jul-2020 18:10:18 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[15-Jul-2020 18:10:18 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[15-Jul-2020 18:10:18 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[15-Jul-2020 18:10:24 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[15-Jul-2020 18:10:24 UTC] PHP Stack trace:
+[15-Jul-2020 18:10:24 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[15-Jul-2020 18:10:24 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[15-Jul-2020 18:10:24 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[15-Jul-2020 18:10:24 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[15-Jul-2020 18:10:24 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[15-Jul-2020 18:10:24 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[15-Jul-2020 18:10:24 UTC] PHP Stack trace:
+[15-Jul-2020 18:10:24 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[15-Jul-2020 18:10:24 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[15-Jul-2020 18:10:24 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[15-Jul-2020 18:10:24 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[15-Jul-2020 18:10:24 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28

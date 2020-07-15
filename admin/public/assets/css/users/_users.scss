@@ -30,7 +30,7 @@
         text-align: center;
         margin-bottom: 10px;
     }
-    .deactivate-btn {
+    .deactivate-btn, .disupgrade-btn {
         @include btn-adv($light-purple,$dark-purple);
         font-size: 16px;
     }

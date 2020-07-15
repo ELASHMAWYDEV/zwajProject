@@ -12,6 +12,7 @@ class usersController extends Controller
         isset($_POST['activate_user']) ? $this->activateUser($_POST['id']) : null;
         isset($_POST['delete_user']) ? $this->deleteUser($_POST['id']) : null;
         isset($_POST['upgrade_special']) ? $this->upgradeUser($_POST['id'], $_POST['plan']) : null;
+        isset($_POST['disupgrade']) ? $this->disupgradeUser($_POST['id']) : null;
 
 
 
@@ -100,11 +101,11 @@ class usersController extends Controller
 
                 switch($user->account_type) {
                     case '0':
-                        $user->account_type = 'عادية';
+                        $user->account_type_txt = 'عادية';
                     break;
 
                     case '1':
-                        $user->account_type = 'مميزة';
+                        $user->account_type_txt = 'مميزة';
                     break;
                 }
 
@@ -196,4 +197,21 @@ class usersController extends Controller
             $this->success[] = "تم ترقية حساب المستخدم رقم #$id بنجاح";
         }
     }
+
+
+
+    public function disupgradeUser($id)
+    {
+        $sql = "UPDATE users SET account_type = '0', special_account_deadline = NULL WHERE id = ? LIMIT 1";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$id]);
+
+        if($stmt->rowCount() == '0') {
+            $this->errors[] = "حدث خطأ ما";
+            
+        } else {
+            $this->success[] = "تم تحويل عضوية المستخدم رقم #$id الي عضوية عادية بنجاح";
+        }
+    }
+
 }
