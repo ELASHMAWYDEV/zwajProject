@@ -1,11 +1,12 @@
 #profile{
     direction:rtl;
-    padding:5px;
+    padding: 15px;
+    padding-bottom: 50px;
     background:#ffffff;
     width:7in;
     margin:0 auto;
     border-radius:5px;
-    height:9in;
+    height: 8in;
 }
 .p-img img{
     float:left;
@@ -22,7 +23,7 @@
     background:#555;
     padding:10px;
     float:right;
-    margin-top:1.5in;
+    margin-top:30px;
     color:#ffffff;
     border-radius:2px;
 }
@@ -31,7 +32,7 @@
     background:#ee5253;
     padding:10px;
     float:right;
-    margin-top:1.5in;
+    margin-top:30px;
     color:#ffffff;
     border-radius:2px;
     margin-right:1px;
@@ -60,11 +61,12 @@
 @media only screen and (max-width: 710px) {
   #profile{
     direction:rtl;
-    padding:5px;
+    padding: 15px;
+    padding-bottom: 50px;
     background:#ffffff;
     width:80%;
     margin:0 auto;
     border-radius:5px;
-    height:9in;
+    height:9.5in;
    }
 }

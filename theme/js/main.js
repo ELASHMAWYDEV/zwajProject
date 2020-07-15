@@ -73,4 +73,29 @@ $(document).ready(function(){
 });
 
 
+//like button
+$('.like-button i').on('click', (e) => {
+  
+
+  let id = $('.like-button').attr('data-user-id');
+  let liked = 0;
+  if($('.like-button').hasClass('liked')) {
+    liked = 0;
+  } else {
+    liked = 1;
+  }
+
+  $.ajax({
+    method: 'POST',
+    url: 'user-func',
+    data: {like_user: 'like_user', id: id, liked: liked},
+    success: (result) => {
+      console.log(result);
+      
+      if(result == 1) {
+        $('.like-button').toggleClass('liked');
+      }
+    }
+  })
+});
 

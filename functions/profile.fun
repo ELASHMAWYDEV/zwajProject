@@ -23,6 +23,7 @@ function profimg(){
      }else{
          echo '<img src="uploads/'.$row['usr_img'].'" />';
      }
+     
 }
 function checkme(){
     include 'includes/config.php';
@@ -463,9 +464,20 @@ function profinfo(){
         echo '<p>'.$get1['lovebio'].'</p>';
         echo '<b><i class="far fa-file-alt"></i> تفاصيل عني</b>';
         echo '<p>'.$get1['bio'].'</p>';
-        if($_SESSION['id'] == $_GET['id']){}else{
-        echo '<a href="chat?id='.$_GET['id'].'" class="_msg"><i class="far fa-envelope"></i> مراسله</a>';
-        echo '<a href="report?id='.$_GET['id'].'" class="_warn">إبلاغ</a>';
+        if($_SESSION['id'] == $_GET['id']){
+
+        }else{
+        
+            //liked or not ?
+            if(in_array($_SESSION['id'] ,explode(',', $get1['likes']))) {
+                $liked = 'liked';
+            } else {
+                $liked = '';
+            }
+
+            echo '<b>هل أعجبك ؟</b><div class="like like-button ' . $liked . '" data-user-id="' . $get1['id'] . '" style="margin-right: 20px;"><i class="fas fa-thumbs-up"></i></div>';
+            echo '<a href="chat?id='.$_GET['id'].'" class="_msg" style="margin-left: 20px;"><i class="far fa-envelope"></i> مراسله</a>';
+            echo '<a href="report?id='.$_GET['id'].'" class="_warn"><i class="fas fa-exclamation-triangle" style="margin-left: 10px;"></i>إبلاغ</a>';
         }
     }
 }

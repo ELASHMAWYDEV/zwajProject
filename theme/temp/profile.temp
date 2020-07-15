@@ -1,3 +1,20 @@
+<style>
+    .like {
+        font-size: 30px;
+    }
+    .like i {
+        color: #95a5a6;
+        transition: 0.1s ease;
+        cursor: pointer;
+    }
+
+    .like.liked i {
+        color: #3498db;
+    }
+
+
+</style>
+
 <div id="infopar">
  <p><?=profusername();?></p>
 </div>
