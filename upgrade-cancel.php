@@ -2,6 +2,8 @@
 error_reporting(0);
 session_start();
 
+
+
 #
 #include
 #database config
@@ -28,5 +30,11 @@ include 'functions/usr.fun';
 
 include 'theme/upgrade-cancel.temp';
 
+
+//remove the payment cookie
+setcookie('payment_id', null, time() - 3600);
+
+//update the payment status to 'تم الغائها من قبل العميل'
+$stmt = $mysqli->query("UPDATE ");
 
 ?>

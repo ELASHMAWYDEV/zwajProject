@@ -24,6 +24,7 @@
     display: none;
     @include box;
     @include box-animate;
+    
 
     h3 {
         text-align: center;
@@ -38,12 +39,18 @@
         font-size: 16px;
         margin-right: 40px;
     }
-    .reactivate-btn {
+    .activate-btn {
         @include btn-adv($light-green,$dark-green);
         font-size: 16px;
     }
     .input-items {
-        flex-direction: row !important;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .upgrade-btn {
+        @include btn-adv($light-green,$dark-green);
+        font-size: 16px;
+        margin-right: 40px;
     }
 
 }

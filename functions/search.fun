@@ -1,12 +1,12 @@
 <?php
  function search_results(){
    include 'includes/config.php';
-   if($_POST['state'] == 'N'){
+   if($_POST['state'] == ''){
        echo 'حدد المنطقة';
    }
      if($_POST['malesearch']){
          
-        if($_POST['state'] == '0'){
+        if($_POST['state'] == '0' || $_POST['state'] == '14'){
             
             
    $usrGender     = $mysqli->query("SELECT * FROM `users` WHERE `gender`=1");
@@ -276,10 +276,10 @@
      
      */
      if($_POST['femalesearch']){
-   if($_POST['state'] == 'N'){
+   if($_POST['state'] == ''){
        echo 'حدد المنطقة';
    }
-    if($_POST['state'] == '0'){
+    if($_POST['state'] == '0' || $_POST['state'] == '14'){
             
             
    $usrGender     = $mysqli->query("SELECT * FROM `users` WHERE `gender`=2");

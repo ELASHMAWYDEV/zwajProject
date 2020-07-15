@@ -1,3 +1,21 @@
+
+<style>
+	.proc {
+		text-align: center;
+		color: #fff;
+		width: max-content;
+		background-color: #2ecc71;
+		border-radius: 10px;
+		padding: 10px 30px;
+		margin: auto;
+		margin-top: 20px;
+		position: relative;
+		z-index: 20;
+		
+	}
+
+
+</style>
 <div id="infopar">
   <p><?=$_SESSION['username'];?></p>
   <span>إداره العضويه</span>

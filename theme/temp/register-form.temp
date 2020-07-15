@@ -198,31 +198,31 @@
  <p>الحاله الصحيه</p>
  <div class="inps">
  	<div>
- 		<select name="health"><option value="0">نقص المناعه HIV</option></select>
+ 		<select name="health" required><option value="0">نقص المناعه HIV</option></select>
  	</div>
  </div>
  <p>مواصفات شريكة الحياه</p>
  <div class="note">يمنع كتابه تفاصيل مثل رقم الهاتف او البريد الاكتروني و وسائل تواصل خارجيه</div>
  <div class="inps">
  	<div>
- 		<textarea name="lovebio" placeholder="مثلاً : ان تكون متدينه , ان تكون من منطقه معينه الخ.."></textarea>
+ 		<textarea name="lovebio" placeholder="مثلاً : ان تكون متدينه , ان تكون من منطقه معينه الخ.." required></textarea>
  	</div>
  </div>
  <p>تحدث عن نفسك</p>
  <div class="note">يمنع كتابه تفاصيل مثل رقم الهاتف او البريد الاكتروني و وسائل تواصل خارجيه</div>
  <div class="inps">
  	<div>
- 		<textarea name="bio"></textarea>
+ 		<textarea name="bio" required></textarea>
  	</div>
  </div>
  <p><i class="fas fa-user-secret"></i> البيانات الخاصه</p>
  <div class="note">بياناتك في امان - هذه البيانات لا يمكن سوى للإداره مراجعتها , لا يمكن لباقي المستخدمين رؤيتها</div>
  <div class="inps">
  	<div>
- 		<input type="text" name="full_name" placeholder="الإسم بالكامل" />
+ 		<input type="text" name="full_name" placeholder="الإسم بالكامل" required/>
  	</div>
  	<div>
- 		<input type="number" name="phone_number" placeholder="رقم الهاتف" />
+ 		<input type="number" name="phone_number" placeholder="رقم الهاتف" required/>
  	</div>
  </div>
  <div class="inps">

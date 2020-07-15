@@ -102,11 +102,22 @@
     
     while($row = $lastusers->fetch_assoc()){
         echo '
-         <div class="user"> 
-  <img src="theme/img/men.png" />
-  <div class="info">
-   <p>'.$row['username'].'</p>
-   <label><i class="fas fa-globe-europe"></i>';
+          <div class="user">';
+          if($row['usr_img'] == ''){
+            if($row['gender'] == 1){
+              echo '<img src="theme/img/men.png" />';
+            }
+            if($row['gender'] == 2){
+              echo '<img src="theme/img/women.png" />';
+            }
+          }else{
+              echo '<img src="uploads/'.$row['usr_img'].'" />';
+     
+          }
+
+        echo '<div class="info">
+          <p>'. $row['username'] .'</p>
+          <label><i class="fas fa-globe-europe"></i>';
         if($row['country'] == 'ksa')
         {
             echo 'السعودية';

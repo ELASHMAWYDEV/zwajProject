@@ -1962,7 +1962,7 @@
   transition: 0s ease;
 }
 
-.edit-user-box .reactivate-btn {
+.edit-user-box .activate-btn {
   cursor: pointer;
   background-color: #2ECC71;
   border: 1.5px solid #27AE60;
@@ -1978,11 +1978,11 @@
   font-size: 16px;
 }
 
-.edit-user-box .reactivate-btn:hover {
+.edit-user-box .activate-btn:hover {
   background-color: #27AE60;
 }
 
-.edit-user-box .reactivate-btn:active {
+.edit-user-box .activate-btn:active {
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
   -webkit-transition: 0s ease;
@@ -1990,10 +1990,40 @@
 }
 
 .edit-user-box .input-items {
-  -webkit-box-orient: horizontal !important;
-  -webkit-box-direction: normal !important;
-      -ms-flex-direction: row !important;
-          flex-direction: row !important;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.edit-user-box .upgrade-btn {
+  cursor: pointer;
+  background-color: #2ECC71;
+  border: 1.5px solid #27AE60;
+  color: #fff;
+  border-radius: 9px 0 9px 0;
+  padding: 5px 20px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  outline: none;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 16px;
+  margin-right: 40px;
+}
+
+.edit-user-box .upgrade-btn:hover {
+  background-color: #27AE60;
+}
+
+.edit-user-box .upgrade-btn:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-transition: 0s ease;
+  transition: 0s ease;
 }
 
 .show-user-box {

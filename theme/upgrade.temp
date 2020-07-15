@@ -2,6 +2,8 @@
 define('PAYPAL_ID', 'hodamedoraiana1122@gmail.com'); //PUT YOUR PAYPAL BUSSINESS EMAIL ADDRESS HERE
 define('PRICE', 10); //THE PRICE OF THE MEMBERSHIP
 
+$stmt = $mysqli->query("SELECT * FROM users WHERE id = " . $_SESSION['id'] . " LIMIT 1");
+$user = $stmt->fetch_assoc();
 
 
 if(isset($_SERVER['HTTPS'])) {
@@ -112,10 +114,11 @@ define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cg
         .cards {
             display: flex;
             direction: rtl;
-            
+            flex-direction: column;
         }
         .pay-cards {
             margin: 20px auto;
+            display: flex;
         }
         .pay-cards .card {
             margin: 20px;
@@ -126,9 +129,7 @@ define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cg
             border-radius: 7px;
 
         }
-        .card .card-title {
 
-        }
         .card .card-price {
             color: #000;
             font-weight: 700;
@@ -139,6 +140,39 @@ define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cg
             text-decoration: line-through;
             color: #000;
         }
+        .email-input {
+            margin: 10px auto;
+        }
+        .email-input p {
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .email-input input {
+            border-radius: 8px;
+            outline: none;
+            border: 1.5px solid #2c3e50;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            display: inline-block;
+            width: 300px;
+        }
+        .email-input input:focus {
+            border: 1.5px solid #3498db;
+        }
+        #alert {
+            text-align: center;
+            color: #fff;
+            width: max-content;
+            background-color: #34495e;
+            border-radius: 10px;
+            padding: 10px 30px;
+            margin: auto;
+            margin-top: 20px;
+            position: relative;
+            z-index: 20;
+            display: none;
+        }
     </style>
 
 
@@ -147,6 +181,8 @@ define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cg
 
 
     <div class="payments-container">
+    <?php if($user['account_type'] == '0'):?>
+
         <h3><span>باقة واحدة</span>  تضمن لك خصوصيتك والاستفادة من المزايا راجين التوفيق للجميع</h3>
         <div class="cards">
             <div class="payment-card">
@@ -171,6 +207,11 @@ define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cg
                         </li> -->
                     </ul>
                 </div>
+            </div>
+            <div class="email-input">
+                <p>أدخل بريدك الالكتروني في بايبال ثم اختر مدة الباقة</p>
+                <input type="email" name="" id="email-input" placeholder="البريد الالكتروني علي بايبال">
+                <div id="alert">يجب كتابة بريدك الالكتروني الذي ستتدفع به علي بايبال أولا</div>
             </div>
             <div class="pay-cards">
                 <div class="card">
@@ -218,6 +259,12 @@ define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cg
                 </div>
             </div>          
         </div>
+
+    <?php else:?>
+        <h3><i class="fas fa-star" style="color: #f1c40f;"></i> أنت الأن صاحب<span style="color: #f1c40f;"> عضويه مميزه</span></h3>
+        <h4>تاريخ انتهاء العضوية</h4>
+        <p><?=date("d/m/Y", strtotime($user['special_account_deadline']))?></p>
+    <?php endif;?>
     </div>
     
 
@@ -229,48 +276,97 @@ define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cg
 
 <script>
 
+
+    
+    var email_input = $('#email-input');
+
     //sending payment notification to the admin
     let form10 = document.forms['10_form'];
     let form25 = document.forms['25_form'];
     let form100 = document.forms['100_form'];
 
+    var paypal_email = '';
+    email_input.on('input', e => {
+        paypal_email = email_input.val();
+        console.log(paypal_email)
+    });
+
+
     form10.onsubmit = e => {
-        $.ajax({
-            method: 'POST',
-            url: 'upgrade-func',
-            data: {new_payment:'new_payment', user_id:`<?=$_SESSION['id']?>`, package:'شهر'},
-            success: (result) => {
-                if(result == 0) {
-                    e.preventDefault();
+        if(emailAlertCheck()) {
+            $.ajax({
+                method: 'POST',
+                url: 'upgrade-func',
+                data: {new_payment:'new_payment', user_id:`<?=$_SESSION['id']?>`, package:'شهر',paypal_email: paypal_email},
+                success: (result) => {
+                    if(result == 0) {
+                        e.preventDefault();
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            e.preventDefault();
+        }
+        
     }
 
     form25.onsubmit = e => {
-        $.ajax({
-            method: 'POST',
-            url: 'upgrade-func',
-            data: {new_payment:'new_payment', user_id:`<?=$_SESSION['id']?>`, package:'ثلاثة أشهر'},
-            success: (result) => {
-                if(result == 0) {
-                    e.preventDefault();
+        if(emailAlertCheck()) {
+            $.ajax({
+                method: 'POST',
+                url: 'upgrade-func',
+                data: {new_payment:'new_payment', user_id:`<?=$_SESSION['id']?>`, package:'ثلاثة أشهر',paypal_email: paypal_email},
+                success: (result) => {
+                    if(result == 0) {
+                        e.preventDefault();
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            e.preventDefault();
+        }
+        
     }
 
     form100.onsubmit = e => {
-        $.ajax({
-            method: 'POST',
-            url: 'upgrade-func',
-            data: {new_payment:'new_payment', user_id:`<?=$_SESSION['id']?>`, package:'عام كامل'},
-            success: (result) => {
-                if(result == 0) {
-                    e.preventDefault();
+        if(emailAlertCheck()) {
+            $.ajax({
+                method: 'POST',
+                url: 'upgrade-func',
+                data: {new_payment:'new_payment', user_id:`<?=$_SESSION['id']?>`, package:'عام كامل',paypal_email: paypal_email},
+                success: (result) => {
+                    if(result == 0) {
+                        e.preventDefault();
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            e.preventDefault();
+        }
+        
+    }
+
+
+
+    function emailAlertCheck() {
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+
+        if(paypal_email == '') {
+            $('#alert').css({'background-color':'#eb2f06', 'color':'white'});
+            $('#alert').text('يجب كتابة بريدك الالكتروني الذي ستتدفع به علي بايبال أولا');
+            $('#alert').slideDown();
+            setTimeout(e => $('#alert').slideUp(), 1500);
+            return false;
+
+        } else if (!emailReg.test(paypal_email)) {
+            $('#alert').css({'background-color':'#eb2f06', 'color':'white'});
+            $('#alert').text('هذا البريد الالكتروني غير صالح');
+            $('#alert').slideDown();
+            setTimeout(e => $('#alert').slideUp(), 1500);
+            return false;
+        } else {
+            return true;
+        }
     }
 </script>
 

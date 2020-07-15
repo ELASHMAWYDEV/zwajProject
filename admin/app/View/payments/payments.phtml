@@ -47,6 +47,7 @@
                             <th>الباقة</th>
                             <th>تاريخ المعاملة</th>
                             <th>وسيلة الدفع</th>
+                            <th>حساب الدفع</th>
                             <th>الإجراء</th>
                         </tr>
                     </thead>
@@ -58,6 +59,7 @@
                             <td><?=$payment->package?></td>
                             <td><?=$payment->create_date?></td>
                             <td><?=$payment->method?></td>
+                            <td><?=$payment->paypal_email?></td>
                             <td class="action">
                                 <?php if(empty($payment->status)):?>
                                     <form method="POST">

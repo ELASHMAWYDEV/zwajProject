@@ -118,6 +118,8 @@ background: #cb381b;
     width:1in;
     height:1in;
     float:left;
+    /* border-radius: 8px; */
+    margin-right: 10px;
 }
 .user .info{
     padding:2px;

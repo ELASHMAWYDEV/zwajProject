@@ -43,6 +43,11 @@
 
 
 <?=footer();?>
+
+<script>
+    <?php if(isset($_COOKIE['random_payment_id'])):?>
+
+</script>
 <script type="text/javascript" src="theme/js/main.js"></script>
 </body>
 </html>

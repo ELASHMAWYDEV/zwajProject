@@ -7,6 +7,15 @@ class usersController extends Controller
     {
         parent::__construct();
 
+
+        isset($_POST['deactivate_user']) ? $this->deactivateUser($_POST['id']) : null;
+        isset($_POST['activate_user']) ? $this->activateUser($_POST['id']) : null;
+        isset($_POST['delete_user']) ? $this->deleteUser($_POST['id']) : null;
+        isset($_POST['upgrade_special']) ? $this->upgradeUser($_POST['id'], $_POST['plan']) : null;
+
+
+
+
         $this->loggedIn();
         $this->view('users');
         $this->getUsers();
@@ -98,6 +107,24 @@ class usersController extends Controller
                         $user->account_type = 'مميزة';
                     break;
                 }
+
+                switch($user->ban) {
+                    case '0':
+                        $user->status = 'مفعل';
+                    break;
+                    case '1':
+                        $user->status = 'معطل';
+                    break;
+                }
+
+                if(empty($user->special_account_deadline)) {
+                    $user->special_account_deadline = 'لا يوجد';
+                } else if(strtotime($user->special_account_deadline) > time()) {
+
+                    $user->special_account_deadline = date('d/m/Y', strtotime($user->special_account_deadline));
+                } else {
+                    $user->special_account_deadline = 'انتهت';
+                }
             }
         }
         else
@@ -106,4 +133,67 @@ class usersController extends Controller
         }
     }
 
+
+
+
+
+    public function deactivateUser($id)
+    {
+        $sql = "UPDATE users SET ban = '1' WHERE id = ? LIMIT 1";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$id]);
+
+        if($stmt->rowCount() == '0') {
+            $this->errors[] = "حدث خطأ ما";
+            
+        } else {
+            $this->success[] = "تم تعطيل حساب المستخدم رقم #$id بنجاح";
+        }
+    }
+
+
+    public function activateUser($id)
+    {
+        $sql = "UPDATE users SET ban = '0' WHERE id = ? LIMIT 1";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$id]);
+
+        if($stmt->rowCount() == '0') {
+            $this->errors[] = "حدث خطأ ما";
+            
+        } else {
+            $this->success[] = "تم تفعيل حساب المستخدم رقم #$id بنجاح";
+        }
+    }
+
+
+    public function deleteUser($id)
+    {
+        $sql = "DELETE FROM users WHERE id = ? LIMIT 1";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$id]);
+
+        if($stmt->rowCount() == '0') {
+            $this->errors[] = "حدث خطأ ما";
+            
+        } else {
+            $this->success[] = "تم حذف حساب المستخدم رقم #$id بنجاح";
+        }
+    }
+
+
+    public function upgradeUser($id, $month)
+    {
+        $period = date("Y-m-d H:m:i", strtotime($month . ' month'));
+        $sql = "UPDATE users SET account_type = '1', special_account_deadline = '$period' WHERE id = ? LIMIT 1";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$id]);
+
+        if($stmt->rowCount() == '0') {
+            $this->errors[] = "حدث خطأ ما";
+            
+        } else {
+            $this->success[] = "تم ترقية حساب المستخدم رقم #$id بنجاح";
+        }
+    }
 }

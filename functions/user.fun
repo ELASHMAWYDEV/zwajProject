@@ -25,13 +25,13 @@ function currentUsrImg(){
 function paymentList(){
 	include 'includes/config.php';
     $u   = $_SESSION['id'];
-    $sql = $mysqli->query("SELECT * FROM `payments` WHERE `id`='$u'");
+    $sql = $mysqli->query("SELECT * FROM `payments` WHERE `user_id`='$u'");
     $num = $sql->num_rows;
     
     if($num == 0){
         echo 'لا يوجد مدفوعات';
     }else{
-        
+        echo '';
     }
     
 }
@@ -78,25 +78,29 @@ function usrImgUpdate(){
 	include 'includes/config.php';
 	if($_POST['upImg']){
 		$image = $_FILES['image']['name'];
-		$target = "uploads/".basename($image);
+		$ext = pathinfo($image, PATHINFO_EXTENSION);
 
-		$temp = explode(".", $_FILES["image"]["name"]);
-		$newfilename = round(microtime(true)) . '.' . end($temp);
+		if(!in_array($ext, ['jpeg', 'jpg', 'png', 'gif'])) {
+			echo '<div class="proc">مسموح برفع الصور فقط</div>';
+			return;
+		}
 
 
+		$finalName = 'img_' . uniqid() . '.' . $ext;
+		$target = "uploads/". $finalName ;
 
+		if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
 
-	if (move_uploaded_file($_FILES['image']['tmp_name'], $target.$newfilename)) {
+			$usr_id    = $_SESSION['id'];
+			$sqlupdate = $mysqli->query("UPDATE `users` SET `usr_img`='$finalName' WHERE `id`='$usr_id'");
 
-		$imgname   = $image.$newfilename;
-		$usr_id    = $_SESSION['id'];
-		$sqlupdate = $mysqli->query("UPDATE `users` SET `usr_img`='$imgname' WHERE `id`='$usr_id'");
-
-		echo '<div class="proc">تم تغيير صوره المستخدم</div>';
-		
-  	}else{
-		echo '<div class="proc">حدثت مشكله اثناء رفع الملف</div>';
-  	}
+			if($sqlupdate) {
+				echo '<div class="proc">تم تغيير صوره المستخدم بنجاح</div>';
+			}
+			
+		}else{
+			echo '<div class="proc">حدثت مشكله اثناء رفع الملف</div>';
+		}
 
 	}
 

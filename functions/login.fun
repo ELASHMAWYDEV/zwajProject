@@ -38,6 +38,11 @@
  			$_SESSION['id'] = $query_data['id'];
 			$_SESSION['username'] = $query_data['username'];
 			$_SESSION['email'] = $query_data['email'];
+
+			//update membership status
+			if(strtotime($query_data['special_account_deadline']) < time());
+				$mysqli->query("UPDATE users SET account_type = '0' WHERE id = " . $_SESSION['id'] . " LIMIT 1");
+
  			header("location: dashboard");
  		}
  	}

@@ -49,7 +49,9 @@
                         <tr>
                             <th>#</th>
                             <th>اسم المستخدم</th>
+                            <th>الحالة</th>
                             <th>العضوية</th>
+                            <th>انتهاء العضوية</th>
                             <th>البريد الالكتروني</th>
                             <th>الاسم</th>
                             <th>الجنس</th>
@@ -64,14 +66,17 @@
                         <tr>
                             <td><?=$user->id?></td>
                             <td><?=$user->username?></td>
+                            <td><?=$user->status?></td>
                             <td><?=$user->account_type?></td>
+                            <td><?=$user->special_account_deadline?></td>
                             <td><?=$user->email?></td>
                             <td><?=$user->full_name?></td>
                             <td><?=$user->gender?></td>
                             <td><?=$user->country?></td>
                             <td><?=$user->state?></td>
                             <td><?=$user->phone_number?></td>
-                            <td class="action"><button data-user-id="<?=$user->id?>" class="btn-edit" onclick="get_user_info(this);">جميع البيانات</button><img data-user-id="<?=$user->id?>" src="<?php echo PUBLIC_URL;?>assets/img/pencil.svg" alt="تعديل" title="تعديل البيانات" onclick="popupBox('.edit-user-box');"></td>
+                            <td class="action"><button data-user-id="<?=$user->id?>" class="btn-edit" onclick="get_user_info(this);">جميع البيانات</button>
+                            <img data-user-id="<?=$user->id?>" data-ban="<?=$user->ban?>"  src="<?php echo PUBLIC_URL;?>assets/img/pencil.svg" alt="تعديل" title="تعديل البيانات" onclick="get_user_edit(this);"></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -101,13 +106,47 @@
 
         <h3>المستخدم رقم #<span class="user_id"></span></h3>
         <div class="input-items">
-            <form method="POST">
+
+            <!--Deactivate User-->
+            <form method="POST" name="deactivate_user">
                 <input type="hidden" name="id">
                 <div class="input-item"><button class="deactivate-btn" name="deactivate_user" type="submit">تعطيل الحساب</button></div>
             </form>
-            <form method="POST">
+
+            <!--Activate User-->
+            <form method="POST" name="activate_user">
+                <input type="hidden" name="id">
+                <div class="input-item"><button class="activate-btn" name="activate_user" type="submit">تفعيل الحساب</button></div>
+            </form>
+
+
+            <!--Delete User-->
+            <form method="POST" name="delete_user">
                 <input type="hidden" name="id">
                 <div class="input-item"><button class="delete-btn" name="delete_user" type="submit">حذف الحساب نهائيا</button></div>
+            </form>
+
+        </div>
+        <div class="input-items">
+            <!--Upgrade User #1 month-->
+            <form method="POST">
+                <input type="hidden" name="id">
+                <input type="hidden" name="plan" value="1">
+                <div class="input-item"><button class="upgrade-btn" name="upgrade_special" type="submit">ترقية لمدة شهر</button></div>
+            </form>
+
+            <!--Upgrade User #3 month-->
+            <form method="POST">
+                <input type="hidden" name="id">
+                <input type="hidden" name="plan" value="3">
+                <div class="input-item"><button class="upgrade-btn" name="upgrade_special" type="submit">ترقية لمدة ثلاثة أشهر</button></div>
+            </form>
+
+            <!--Upgrade User #1 year-->
+            <form method="POST">
+                <input type="hidden" name="id">
+                <input type="hidden" name="plan" value="12">
+                <div class="input-item"><button class="upgrade-btn" name="upgrade_special" type="submit">ترقية لمدة عام</button></div>
             </form>
         </div>
     </div>
@@ -134,3 +173,27 @@
     </div>
 </div>
 <!--show user Box END-->
+
+
+<script>
+    function get_user_edit(el){
+        id = el.getAttribute('data-user-id');
+        var edit_user_box = document.querySelector('.edit-user-box');
+        edit_user_box.querySelector('span.user_id').innerHTML = id;
+        edit_user_box.querySelectorAll('input[name="id"]').forEach(input => {
+            input.setAttribute('value', id);
+        });
+        
+        //ban
+        if(el.getAttribute('data-ban') == 0) {
+            hide(document.forms['activate_user']);
+            show(document.forms['deactivate_user']);
+        } else {
+            hide(document.forms['deactivate_user']);
+            show(document.forms['activate_user']);
+        }
+        
+
+        popupBox('.edit-user-box');
+    }
+</script>
