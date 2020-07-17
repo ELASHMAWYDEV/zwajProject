@@ -2,7 +2,7 @@
   function getUserChat() {
     global $mysqli;
 
-    if(isset($_GET['id'])) {
+    if(isset($_GET['id']) && $_GET['id'] != $_SESSION['id']) {
       $id = $_GET['id'];
       $sql = "SELECT * FROM users WHERE id = '$id' LIMIT 1";
       $user = $mysqli->query($sql);
@@ -59,6 +59,8 @@
           
           ';
       }
+    } else {
+        header('location: chat');
     }
 
     $sql = "SELECT * FROM users WHERE id = '" . $_SESSION['id'] . "' LIMIT 1";
@@ -77,7 +79,7 @@
   function getAllChats() {
       global $mysqli;
 
-      if(!isset($_GET['id'])) {
+      if(!isset($_GET['id']) || $_GET['id']) {
           $id = $_SESSION['id'];
 
           $stmt = $mysqli->query("SELECT * FROM chat WHERE from_id = '$id'");
@@ -88,7 +90,8 @@
               $usersIds = [];
 
               foreach ($stmt as $user) {
-                  $usersIds[] = $user['to_id'];
+                  if($_SESSION['id'] != $user['to_id'])
+                    $usersIds[] = $user['to_id'];
               }
               
               $usersIds = array_unique($usersIds);
