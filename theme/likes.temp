@@ -1,0 +1,188 @@
+<?php
+function getAllLiked() {
+
+    global $mysqli;
+    $stmt     = $mysqli->query("SELECT * FROM `users` WHERE `id`='".$_SESSION['id']."'");
+    $user         = $stmt->fetch_assoc();
+    $likes = explode(',', $user['likes']);
+
+    if(count($likes) == 0) {
+        return;
+    }
+    $results_per_page   = 8;
+
+
+    if(!isset($_GET['page'])){
+        $page = 1;
+    }else{
+        $page = $_GET['page'];
+    }
+
+    $this_page_first_result = ($page-1)*$results_per_page;
+
+    $users = [];
+    for($i = 0; $i < count($likes); $i++) {
+        $queryUsers = $mysqli->query("SELECT * FROM `users` WHERE id = '" . $likes[$i] . "'");
+        $users[] = $queryUsers->fetch_assoc();
+    }
+
+    $num_of_pages = ceil(count($likes) / $results_per_page);
+
+    echo '
+    <div style="color: white;font-size: 24px; text-align:center">من سجل اعجاب بصفحتي ؟</div>
+    <div id="loadusrs">';
+    foreach(array_slice($users, $this_page_first_result, $results_per_page) as $row){
+
+    echo '
+    <div class="user">
+    ';
+    if($row['usr_img'] == ''){
+        if($row['gender'] == 1){
+        echo '<img src="theme/img/men.png" />';
+        }
+        if($row['gender'] == 2){
+        echo '<img src="theme/img/women.png" />';
+        }
+    }else{
+        echo '<img src="uploads/'.$row['usr_img'].'" />';
+
+    }
+    echo '
+        <div class="info">
+        <p>'.$row['username'].'</p>
+        <label><i class="fas fa-globe-europe"></i> ';
+        switch($row['country']) {
+
+            case "ksa":
+                echo '';
+            break;
+            case "eg":
+                echo'مصر';
+            break;
+            case "uae":
+                echo'الامارات';
+            break;
+            case "oman":
+                echo'عمان';
+            break;
+            case "lebanon":
+                echo'لبنان';
+            break;
+            case "morocco":
+                echo'المغرب';
+            break;
+            case "algeria":
+                echo'الجزائر';
+            break;
+            case "tunisia":
+                echo'تونس';
+            break;
+            case "bahrain":
+                echo'البحرين';
+            break;
+            case "palestine":
+                echo'فلسطين المحتلة';
+            break;
+            case "jordon":
+                echo'الأردن';
+            break;
+            case "yamn":
+                echo'اليمن';
+            break;
+            case "iraq":
+                echo'العراق';
+            break;
+            case "syria":
+                echo'سوريا';
+            break;
+            case "sudan":
+                echo'السودان';
+            break;
+        }
+        echo '</label>
+        <label><i class="fas fa-venus-mars"></i> ';
+        if($row['gender'] == 1){
+        echo 'ذكر';
+        }else{
+        echo 'انثى';
+        }
+        echo '</label>
+        <label><i class="fas fa-question"></i> ';
+        if($row['type'] == 1){
+        echo 'اعزب';
+        }
+        if($row['type'] == 2){
+        echo 'متزوج';
+        }
+        if($row['type'] == 3){
+        echo 'مطلق';
+        }
+        if($row['type'] == 4){
+        echo 'أرمل';
+        }
+
+        echo '</label>
+        <label><a href="profile?id='.$row['id'].'#/'.$row['username'].'/"><i class="fas fa-paper-plane"></i> مراسله</a></label>
+        </div>
+    </div>
+    ';
+    }
+    echo '</div>';
+
+    echo '<div class="pages">';
+    for($page=1;$page<=$num_of_pages;$page++){
+    echo '<a href="?page='.$page.'#'.base64_encode(time()).'" ';
+    if($_GET['page'] == $page){
+        echo 'class="_selected"';
+    }
+    echo '>'.$page.'</a>';
+    }
+    echo '</div>';
+
+
+}
+
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="theme/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="theme/css/dashboard.css" />
+  <link rel="stylesheet" type="text/css" href="lib/fontawesome/css/all.css" />
+  <link rel="icon" 
+  type="image/png" 
+  href="theme/img/favicon.png" />
+  <script type="text/javascript" src="lib/jquery/jquery.js"></script>
+  <title>Zwaj</title>
+  <?=navbar();?>
+  <?=res_navbar();?>
+  <style>
+      .blur {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 51;
+          filter: blur(8px);
+          background-color: #eeeeeedd;
+      }
+
+
+  </style>
+  </head>
+  <body>
+
+    <?=getAllLiked();?>
+    
+
+
+    <?=footer();?>
+  <script type="text/javascript" src="theme/js/main.js"></script>
+  </body>
+</html>

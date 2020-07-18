@@ -65,11 +65,13 @@
                                     <form method="POST">
                                         <input type="hidden" name="id" value="<?=$payment->id?>">
                                         <input type="hidden" name="user_id" value="<?=$payment->user_id?>">
+                                        <input type="hidden" name="months" value="<?=$payment->months?>">
                                         <button class="btn-confirm" name="confirm">تأكيد</button>
                                     </form>
                                     <form method="POST">
                                         <input type="hidden" name="id" value="<?=$payment->id?>">
                                         <input type="hidden" name="user_id" value="<?=$payment->user_id?>">
+                                        <input type="hidden" name="months" value="<?=$payment->months?>">
                                         <button class="btn-unvalid" name="unvalid">غير صالحة</button>
                                     </form>
                                 <?php else:?>

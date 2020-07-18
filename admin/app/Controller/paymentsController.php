@@ -8,7 +8,7 @@ class paymentsController extends Controller
         parent::__construct();
 
 
-        isset($_POST['confirm']) ? $this->confirmPayment($_POST['id'], $_POST['user_id']) : null;
+        isset($_POST['confirm']) ? $this->confirmPayment($_POST['id'], $_POST['user_id'], $_POST['months']) : null;
         isset($_POST['unvalid']) ? $this->unvalidPayment($_POST['id']) : null;
 
         $this->loggedIn();
@@ -54,15 +54,16 @@ class paymentsController extends Controller
     }
 
 
-    public function confirmPayment($id, $user_id) {
+    public function confirmPayment($id, $user_id, $months) {
 
         $sql = "UPDATE payments SET `status` = 'مؤكدة' WHERE id = ? LIMIT 1";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$id]);
 
         if($stmt->rowCount() == '1') {
+            $period = date("Y-m-d H:m:i", strtotime($month . ' month'));
 
-            $sql = "UPDATE users SET account_type = '1',  WHERE id = ?";
+            $sql = "UPDATE users SET account_type = '1', special_account_deadline = '$period'  WHERE id = ? LIMIT 1";
             $stmt = $this->db->prepare($sql);
             $stmt->execute([$user_id]);
 

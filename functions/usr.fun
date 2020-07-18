@@ -35,7 +35,8 @@
  	if($_SESSION['id']){
  	echo '
  	<a href="user"><i class="far fa-user"></i> '.$_SESSION['username'].' </a>
- 	<a href="chat"> <i class="fas fa-sms"></i> المحادثات</a>
+   <a href="chat"> <i class="fas fa-sms"></i> المحادثات</a>
+   <a href="likes"> <i class="fas fa-thumbs-up"></i> المعجبين</a>
  	';
  	}else{
  	echo '

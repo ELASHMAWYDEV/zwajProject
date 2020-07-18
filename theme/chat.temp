@@ -84,7 +84,7 @@
 
           $stmt = $mysqli->query("SELECT * FROM chat WHERE from_id = '$id'");
           if ($stmt->num_rows == 0) {
-              header("location: dashboard");
+              echo "<div style='margin: 30px auto; width: max-content; padding: 15px; background-color: white; border-radius: 8px;'><h3>لم تتحدث الي أحد بعد</h3></div>";
           } else {
               $stmt = $stmt->fetch_all(MYSQLI_ASSOC);
               $usersIds = [];

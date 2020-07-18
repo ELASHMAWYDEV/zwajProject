@@ -15,7 +15,7 @@ background: #cb381b;
 #navbar{
     direction:rtl;
     display:grid;
-    grid-template-columns:auto 7in;
+    grid-template-columns:auto auto;
     padding:10px;
     font-family: 'El Messiri', sans-serif;
 

@@ -5,6 +5,7 @@ class statsController extends Controller
 
     public function __construct()
     {
+        header('location: users'); //temp
         parent::__construct();
 
         $this->loggedIn();

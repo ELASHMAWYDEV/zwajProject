@@ -297,7 +297,7 @@ define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cg
             $.ajax({
                 method: 'POST',
                 url: 'upgrade-func',
-                data: {new_payment:'new_payment', user_id:`<?=$_SESSION['id']?>`, package:'شهر',paypal_email: paypal_email},
+                data: {new_payment:'new_payment', user_id:`<?=$_SESSION['id']?>`, package:'شهر',paypal_email: paypal_email, months: 1},
                 success: (result) => {
                     if(result == 0) {
                         e.preventDefault();
@@ -315,7 +315,7 @@ define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cg
             $.ajax({
                 method: 'POST',
                 url: 'upgrade-func',
-                data: {new_payment:'new_payment', user_id:`<?=$_SESSION['id']?>`, package:'ثلاثة أشهر',paypal_email: paypal_email},
+                data: {new_payment:'new_payment', user_id:`<?=$_SESSION['id']?>`, package:'ثلاثة أشهر',paypal_email: paypal_email, months: 3},
                 success: (result) => {
                     if(result == 0) {
                         e.preventDefault();
@@ -333,7 +333,7 @@ define('PAYPAL_URL', (PAYPAL_SANDBOX == true)?"https://www.sandbox.paypal.com/cg
             $.ajax({
                 method: 'POST',
                 url: 'upgrade-func',
-                data: {new_payment:'new_payment', user_id:`<?=$_SESSION['id']?>`, package:'عام كامل',paypal_email: paypal_email},
+                data: {new_payment:'new_payment', user_id:`<?=$_SESSION['id']?>`, package:'عام كامل',paypal_email: paypal_email, months: 12},
                 success: (result) => {
                     if(result == 0) {
                         e.preventDefault();

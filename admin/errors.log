@@ -1,0 +1,208 @@
+[18-Jul-2020 09:01:27 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[18-Jul-2020 09:01:27 UTC] PHP Stack trace:
+[18-Jul-2020 09:01:27 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:01:27 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:01:27 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[18-Jul-2020 09:01:37 UTC] PHP Notice:  Undefined offset: 1 in C:\wamp64\www\zwaj\admin\app\Core\Application.php on line 43
+[18-Jul-2020 09:01:37 UTC] PHP Stack trace:
+[18-Jul-2020 09:01:37 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:01:37 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:01:37 UTC] PHP   3. Application->parseUrl() C:\wamp64\www\zwaj\admin\app\Core\Application.php:13
+[18-Jul-2020 09:01:49 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:01:49 UTC] PHP Stack trace:
+[18-Jul-2020 09:01:49 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:01:49 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:01:49 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:01:49 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:01:49 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:01:49 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:01:49 UTC] PHP Stack trace:
+[18-Jul-2020 09:01:49 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:01:49 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:01:49 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:01:49 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:01:49 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:01:51 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = '4'' at line 1 in C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:67
+Stack trace:
+#0 C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php(67): PDOStatement->execute(Array)
+#1 C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php(11): paymentsController->confirmPayment('6', '4')
+#2 C:\wamp64\www\zwaj\admin\app\Core\Application.php(16): paymentsController->__construct()
+#3 C:\wamp64\www\zwaj\admin\index.php(34): Application->__construct()
+#4 {main}
+  thrown in C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php on line 67
+[18-Jul-2020 09:03:01 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:03:01 UTC] PHP Stack trace:
+[18-Jul-2020 09:03:01 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:03:01 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:03:01 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:03:01 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:03:01 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:03:01 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:03:01 UTC] PHP Stack trace:
+[18-Jul-2020 09:03:01 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:03:01 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:03:01 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:03:01 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:03:01 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:03:37 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:03:37 UTC] PHP Stack trace:
+[18-Jul-2020 09:03:37 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:03:37 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:03:37 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:03:37 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:03:37 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:03:37 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:03:37 UTC] PHP Stack trace:
+[18-Jul-2020 09:03:37 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:03:37 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:03:37 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:03:37 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:03:37 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:04:00 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:04:00 UTC] PHP Stack trace:
+[18-Jul-2020 09:04:00 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:04:00 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:04:00 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:04:00 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:04:01 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:04:01 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:04:01 UTC] PHP Stack trace:
+[18-Jul-2020 09:04:01 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:04:01 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:04:01 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:04:01 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:04:01 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:04:02 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = '4' LIMIT 1' at line 1 in C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:67
+Stack trace:
+#0 C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php(67): PDOStatement->execute(Array)
+#1 C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php(11): paymentsController->confirmPayment('6', '4')
+#2 C:\wamp64\www\zwaj\admin\app\Core\Application.php(16): paymentsController->__construct()
+#3 C:\wamp64\www\zwaj\admin\index.php(34): Application->__construct()
+#4 {main}
+  thrown in C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php on line 67
+[18-Jul-2020 09:04:04 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:04:04 UTC] PHP Stack trace:
+[18-Jul-2020 09:04:04 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:04:04 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:04:04 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:04:04 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:04:04 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:04:04 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:04:04 UTC] PHP Stack trace:
+[18-Jul-2020 09:04:04 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:04:04 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:04:04 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:04:04 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:04:04 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:06:38 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = '1' LIMIT 1' at line 1 in C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:67
+Stack trace:
+#0 C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php(67): PDOStatement->execute(Array)
+#1 C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php(11): paymentsController->confirmPayment('5', '1')
+#2 C:\wamp64\www\zwaj\admin\app\Core\Application.php(16): paymentsController->__construct()
+#3 C:\wamp64\www\zwaj\admin\index.php(34): Application->__construct()
+#4 {main}
+  thrown in C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php on line 67
+[18-Jul-2020 09:06:39 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:06:39 UTC] PHP Stack trace:
+[18-Jul-2020 09:06:39 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:06:39 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:06:39 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:06:39 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:06:39 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:06:39 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:06:39 UTC] PHP Stack trace:
+[18-Jul-2020 09:06:39 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:06:39 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:06:39 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:06:39 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:06:39 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:06:43 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:06:43 UTC] PHP Stack trace:
+[18-Jul-2020 09:06:43 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:06:43 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:06:43 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:06:43 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:06:44 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:06:44 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:06:44 UTC] PHP Stack trace:
+[18-Jul-2020 09:06:44 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:06:44 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:06:44 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:06:44 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:06:44 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:10:07 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:10:07 UTC] PHP Stack trace:
+[18-Jul-2020 09:10:07 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:10:07 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:10:07 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:10:07 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:10:07 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:10:07 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:10:07 UTC] PHP Stack trace:
+[18-Jul-2020 09:10:07 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:10:07 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:10:07 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:10:07 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:10:07 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:15:49 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:15:49 UTC] PHP Stack trace:
+[18-Jul-2020 09:15:49 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:15:49 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:15:49 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:15:49 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:15:49 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:15:49 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:15:49 UTC] PHP Stack trace:
+[18-Jul-2020 09:15:49 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:15:49 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:15:49 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:15:49 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:15:49 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:15:52 UTC] PHP Notice:  Undefined variable: month in C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php on line 64
+[18-Jul-2020 09:15:52 UTC] PHP Stack trace:
+[18-Jul-2020 09:15:52 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:15:52 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:15:52 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:15:52 UTC] PHP   4. paymentsController->confirmPayment() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:11
+[18-Jul-2020 09:15:52 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:15:52 UTC] PHP Stack trace:
+[18-Jul-2020 09:15:52 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:15:52 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:15:53 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:15:53 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:15:53 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:15:53 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:15:53 UTC] PHP Stack trace:
+[18-Jul-2020 09:15:53 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:15:53 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:15:53 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:15:53 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:15:53 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:16:08 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:16:08 UTC] PHP Stack trace:
+[18-Jul-2020 09:16:08 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:16:08 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:16:08 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:16:08 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:16:08 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:16:08 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:16:08 UTC] PHP Stack trace:
+[18-Jul-2020 09:16:08 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:16:08 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:16:08 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:16:08 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:16:08 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:16:54 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:16:54 UTC] PHP Stack trace:
+[18-Jul-2020 09:16:55 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:16:55 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:16:55 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:16:55 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:16:55 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
+[18-Jul-2020 09:16:55 UTC] PHP Notice:  Undefined property: stdClass::$user in C:\wamp64\www\zwaj\admin\app\View\payments\payments.phtml on line 58
+[18-Jul-2020 09:16:55 UTC] PHP Stack trace:
+[18-Jul-2020 09:16:55 UTC] PHP   1. {main}() C:\wamp64\www\zwaj\admin\index.php:0
+[18-Jul-2020 09:16:55 UTC] PHP   2. Application->__construct() C:\wamp64\www\zwaj\admin\index.php:34
+[18-Jul-2020 09:16:55 UTC] PHP   3. paymentsController->__construct() C:\wamp64\www\zwaj\admin\app\Core\Application.php:16
+[18-Jul-2020 09:16:55 UTC] PHP   4. View->renderFile() C:\wamp64\www\zwaj\admin\app\Controller\paymentsController.php:18
+[18-Jul-2020 09:16:55 UTC] PHP   5. include() C:\wamp64\www\zwaj\admin\app\Core\View.php:28
