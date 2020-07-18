@@ -59,6 +59,9 @@
 		<option value="iraq">العراق</option>
 		<option value="syria">سوريا</option>
 		<option value="sudan">السودان</option>
+		<option value="kuwait">الكويت</option>
+		<option value="other">أخري</option>
+
 	</select>
   </div>
   <div><select name="state" required>

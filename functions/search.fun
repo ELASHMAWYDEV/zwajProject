@@ -52,45 +52,73 @@
       <div class="info">
        <p>'.$row['username'].'</p>
        <label><i class="fas fa-globe-europe"></i> ';
-       $x = $row['state'];
-       if($x == 1){
-         echo 'الرياض';
+       if($row['country'] == 'ksa')
+       {
+           echo 'السعودية';
        }
-       if($x == 2){
-         echo 'مكة';
+       if($row['country'] == 'eg')
+       {
+           echo 'مصر';
        }
-       if($x == 3){
-         echo 'المدينة';
+       if($row['country'] == 'uae')
+       {
+           echo 'الامارات';
        }
-       if($x == 4){
-         echo 'القصيم';
+       if($row['country'] == 'oman')
+       {
+           echo 'عمان';
        }
-       if($x == 5){
-         echo 'المنطقة الشرقية';
+       if($row['country'] == 'lebanon')
+       {
+           echo 'لبنان';
        }
-       if($x == 6){
-         echo  'عسير';
+       if($row['country'] == 'morocco')
+       {
+           echo 'المغرب';
        }
-       if($x == 7){
-         echo 'تبوك';
+       if($row['country'] == 'algeria')
+       {
+           echo 'الجزائر';
        }
-       if($x == 8){
-         echo 'حائل';
+       if($row['country'] == 'tunisia')
+       {
+           echo 'تونس';
        }
-       if($x == 9){
-         echo 'الحدود الشمالية';
+       if($row['country'] == 'bahrain')
+       {
+           echo 'البحرين';
        }
-       if($x == 10){
-         echo 'جازان';
+       if($row['country'] == 'palestine')
+       {
+           echo 'فلسطين المحتلة';
        }
-       if($x == 11){
-         echo 'نجران';
+       if($row['country'] == 'jordon')
+       {
+           echo 'الأردن';
        }
-       if($x == 12){
-         echo 'الباحة';
+       if($row['country'] == 'yamn')
+       {
+           echo 'اليمن';
        }
-       if($x == 13){
-         echo 'الجوف';
+       if($row['country'] == 'iraq')
+       {
+           echo 'العراق';
+       }
+       if($row['country'] == 'syria')
+       {
+           echo 'سوريا';
+       }
+       if($row['country'] == 'sudan')
+       {
+           echo 'السودان';
+       }
+       if($row['country'] == 'kuwait')
+       {
+           echo 'الكويت';
+       }
+       if($row['country'] == 'other')
+       {
+           echo 'أخري';
        }
        echo '</label>
        <label><i class="fas fa-venus-mars"></i> ';
